@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 html {
   font-size: 62.5%;
   background-color: black;
@@ -10,16 +15,79 @@ html {
 
 /* Navbar */
 .arrows {
-  color: red;
+  color: white;
   font-size: 24px;
 }
 
 .arrows .icon {
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
+  padding: 2rem 4rem;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.img_profile_photo {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+.music_box_div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #121212;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: orange;
+}
+
+.music_information {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.music_details {
+  flex-grow: 1;
+}
+
+.music_name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.music_recommender {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.img_profile_photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.music_cover_img {
+  width: 50%;
+  height: 100%;
+}
+
+.cover_img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }

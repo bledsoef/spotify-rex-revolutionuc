@@ -7,9 +7,8 @@ import FeedBottomBar from "./Feed_bottomBar";
 function FeedMain() {
   return (
     <>
-      <FeedSideBar />
+      {/* <FeedSideBar /> */}
       <FeedNav />
-
       <FeedSubMain />
       <FeedBottomBar />
     </>

@@ -1,9 +1,5 @@
 function FeedSideBar() {
-  return (
-    <>
-      <p>Hello from sidebar</p>
-    </>
-  );
+  return <></>;
 }
 
 export default FeedSideBar;
