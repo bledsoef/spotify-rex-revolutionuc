@@ -4,7 +4,6 @@ import FeedSubMain from "./feed_subMain";
 import FeedBottomBar from "./feed_bottomBar";
 import FeedSideBar from "./feed_sidebar";
 import HomeMain from "../home/home_main";
-
 function Nav() {
   return (
     <div className="mainFeed">
