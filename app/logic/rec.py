@@ -4,8 +4,8 @@ from datetime import datetime
 def create_new_rec(db: Session, rec_data):
     for recipient in rec_data['recipients']:  
         try:
-            new_user = Rec(name=rec_data['name'], createdBy=rec_data['sender'], sentTo=recipient, isPost=rec_data['isPost'], status="pending")
-            db.add(new_user)
+            new_rec = Rec(name=rec_data['name'], createdBy=rec_data['sender'], sentTo=recipient, isPost=rec_data['isPost'], status="pending")
+            db.add(new_rec)
             db.commit()
         except Exception as e:
             print(e)
@@ -21,9 +21,42 @@ def create_new_review(db: Session, review_data):
         print(e)
         return False
 
+def accept_rec_from_user(db: Session, rec_id):
+    try:
+        rec = db.query(Rec).filter(Rec.id == rec_id).first()
+        rec.status = 'accepted'
+        db.add(rec)
+        db.commit()
+    except Exception as e:
+        print(e)
+        return False
+    return True
+
+def accept_rec_from_post(db: Session, rec_id: int, user_id: str):
+    try:
+        rec = db.query(Rec).filter(Rec.id == rec_id).first()
+        new_rec = Rec(createdBy=rec.createdBy, name=rec.name, sentTo=user_id, status="accepted", isPost=True)
+        db.add(new_rec)
+        db.commit()
+    except Exception as e:
+        print(e)
+        return False
+    return True
+
+def reject_rec(db: Session, rec_id):
+    try:
+        rec = db.query(Rec).filter(Rec.id == rec_id).first()
+        rec.status ='rejected'
+        db.add(rec)
+        db.commit()
+    except Exception as e:
+        print(e)
+        return False
+    return True
 
 def get_received_recs(db: Session, user_id: str):
     received_pending = [entry.__dict__ for entry in db.query(Rec).filter(Rec.sentTo == user_id, Rec.status == 'pending').all()]
+    received_rejected = [entry.__dict__ for entry in db.query(Rec).filter(Rec.sentTo == user_id, Rec.status == 'rejected').all()]
     received_accepted = [entry.__dict__ for entry in db.query(Rec).filter(Rec.sentTo == user_id, Rec.status == 'accepted').all()]
     received_completed = [
         dict(rec=rec.__dict__, review=review.__dict__) if review else dict(rec=rec.__dict__)
@@ -33,10 +66,11 @@ def get_received_recs(db: Session, user_id: str):
             .filter(Rec.sentTo == user_id, Rec.status == 'completed')
             .all()
     )]
-    return {'pending': received_pending, 'accepted': received_accepted, 'completed': received_completed}
+    return {'pending': received_pending, 'accepted': received_accepted, 'completed': received_completed, 'rejected': received_rejected}
 
 def get_sent_recs(db: Session, user_id: str):
     sent_pending = [entry.__dict__ for entry in db.query(Rec).filter(Rec.createdBy == user_id, Rec.status == 'pending', Rec.isPost == False).all()]
+    sent_rejected = [entry.__dict__ for entry in db.query(Rec).filter(Rec.createdBy == user_id, Rec.status == 'rejected', Rec.isPost == False).all()]
     sent_accepted = [entry.__dict__ for entry in db.query(Rec).filter(Rec.createdBy == user_id, Rec.status == 'accepted', Rec.isPost == False).all()]
     sent_completed = [
         dict(rec=rec.__dict__, review=review.__dict__) if review else dict(rec=rec.__dict__)
@@ -46,7 +80,7 @@ def get_sent_recs(db: Session, user_id: str):
             .filter(Rec.sentTo == user_id, Rec.status == 'completed', Rec.isPost == False)
             .all()
     )]    
-    return {'pending': sent_pending, 'accepted': sent_accepted,'completed': sent_completed}
+    return {'pending': sent_pending, 'accepted': sent_accepted,'completed': sent_completed, 'rejected': sent_rejected}
 
 def get_posts(db: Session, user_id: str):
     return db.query(Rec).filter(Rec.createdBy == user_id).all()
