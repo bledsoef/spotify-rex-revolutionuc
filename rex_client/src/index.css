@@ -10,7 +10,9 @@ html {
 
 .arrows {
   color: white;
-  font-size: 2.4rem;
+  font-size: 3.0rem;
+  display: flex;
+  gap: 1.5rem;
 }
 
 .arrows .icon {
@@ -21,7 +23,8 @@ html {
 .nav {
   display: flex;
   justify-content: space-between;
-  padding: 2rem 4rem;
+  padding: 2rem;
+  align-items: center;
 }
 
 .profile {
@@ -107,23 +110,29 @@ html {
   color: green;
 }
 
-/* Styles for icons */
-svg {
-  width: 2.4rem;
-  height: 2.4rem;
-}
-
 .spotify {
   display: flex;
   color: white;
   font-size: 2.4rem;
+  font-family: Proxima Nova, Consolas, "Courier New", monospace;
+  font-style: bold;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
-.spotify .icon {
-  width: 1.4rem;
-  height: 1.4rem;
+.spotify svg{
+  width: 5.4rem;
+  height: 5.4rem;
+}
+
+.profile_name svg{
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.2rem;
+}
+
+.profile_name {
+  font-size: 1.5rem; 
 }
 
 /* Music Box */
