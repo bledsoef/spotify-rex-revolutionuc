@@ -1,10 +1,10 @@
 import React from "react";
-import FeedMain from "./view/feed/Feed_main";
+import Nav from "./view/feed/feed_main";
 
 function App() {
   return (
     <>
-      <FeedMain />
+      <Nav />
     </>
   );
 }
