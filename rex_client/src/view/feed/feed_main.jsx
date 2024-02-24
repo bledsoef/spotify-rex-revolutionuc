@@ -12,7 +12,6 @@ function FeedMain() {
         <FeedNav />
       </div>
       <div className="middleFeed">
-        {/* <FeedSideBar /> */}
         <FeedSideBar />
         <FeedSubMain />
       </div>
@@ -20,9 +19,7 @@ function FeedMain() {
       <div className="bottomFeed">
         <FeedBottomBar />
       </div>
-
     </div>
   );
 }
-
 export default FeedMain;

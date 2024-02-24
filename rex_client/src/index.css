@@ -2,21 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
 html {
   font-size: 62.5%;
   background-color: black;
   color: white;
 }
 
-/* Navbar */
 .arrows {
   color: white;
-  font-size: 24px;
+  font-size: 2.4rem;
 }
 
 .arrows .icon {
@@ -92,28 +86,75 @@ html {
   border-radius: 8px;
 }
 
-.home {
-  display: flex;
-  align-items: center; 
-}
-
-.home p {
-  margin: 0.5rem;
-  margin-left: 1.0rem;
-  font-size: 1.5rem;
-  line-height: 1;
-}
-
-.navText p {
-  margin: 0.5rem;
-  font-size: 1.5rem;
-}
-
 .middleFeed {
   display: flex;
+  gap: 5rem;
 }
 
 .mainFeed {
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
+} */
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
+
+
+/* Side Bar Styles  */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; 
+  padding: 2rem;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer; 
+}
+
+.home p {
+  margin: 0;
+  font-size: 1.5rem;
+  white-space: nowrap;
+}
+
+.navText p {
+  margin: 0;
+  font-size: 1.5rem;
+  padding-left: 1rem;
+}
+
+/* Add hover effect for better UX */
+.home:hover p,
+.navText:hover p {
+  color: green;
+}
+
+/* Styles for icons */
+svg {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.spotify {
+  display: flex;
+  color: white;
+  font-size: 2.4rem;
+  align-items: center;
+  gap: 1rem;
+}
+
+.spotify .icon {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
