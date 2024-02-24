@@ -33,3 +33,6 @@ def get_sent_recs(db: Session, user_id: str):
 
 def get_posts(db: Session, user_id: str):
     return db.query(Rec).filter(Rec.createdBy == user_id).all()
+
+def get_non_user_posts(db: Session, user_id: str):
+    return db.query(Rec).filter(Rec.isPost == True, Rec.createdBy != user_id).all()

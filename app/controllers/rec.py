@@ -1,8 +1,7 @@
 from fastapi import APIRouter, Depends, Request
 from sqlalchemy.orm import Session
 from database.connection import get_db
-from app.logic.rec import create_new_rec, get_received_recs, get_sent_recs, get_posts, create_new_review
-
+from app.logic.rec import create_new_rec, get_received_recs, get_sent_recs, get_non_user_posts, create_new_review
 router = APIRouter()
 
 @router.post("/createRec")
@@ -49,9 +48,9 @@ async def getReceivedRecsForUser(username: str, db: Session = Depends(get_db)):
 @router.get("/getFeedForUser")
 async def getFeed(username: str, db: Session = Depends(get_db)):
     try:
-        posts = get_posts(db, username)
+        non_user_posts = get_non_user_posts(db, username)
         
-        return posts
+        return non_user_posts
     except Exception as e:
         print(e)
         return {"message": "Failed to get recs"}
