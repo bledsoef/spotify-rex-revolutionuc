@@ -31,8 +31,15 @@ function FeedNav() {
           />
         </svg>
       </div>
-      <div>
-        <p>hello</p>
+      <div className="profile">
+        <div className="profile_photo">
+          <img
+            className="img_profile_photo"
+            src="https://www.amandaherbert.com/wp-content/uploads/2022/09/Mahima-Sukhdev-Headshots-100.jpg"
+          ></img>
+        </div>
+        <div className="profile_name">Jessica</div>
+        <div>^</div>
       </div>
     </div>
   );

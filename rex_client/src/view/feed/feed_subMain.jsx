@@ -1,10 +1,11 @@
+import MusicBox from "./Music_Component";
+
 function FeedSubMain() {
-    return (
-      <>
-        <p>Hello from SubMain</p>
-      </>
-    );
-  }
-  
-  export default FeedSubMain;
-  
+  return (
+    <div className="feed_main">
+      <MusicBox />
+    </div>
+  );
+}
+
+export default FeedSubMain;

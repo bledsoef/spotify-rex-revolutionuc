@@ -1,17 +1,27 @@
 // import "./css/feed_main.module.css";
 import FeedNav from "./Feed_nav";
-import FeedSideBar from "./Feed_sidebar";
 import FeedSubMain from "./Feed_subMain";
 import FeedBottomBar from "./Feed_bottomBar";
+import FeedSideBar from "./Feed_sidebar";
 
 function FeedMain() {
   return (
-    <>
-      <FeedSideBar />
-      <FeedNav />
-      <FeedSubMain />
-      <FeedBottomBar />
-    </>
+
+    <div className ="mainFeed">
+      <div className="topFeed">
+        <FeedNav />
+      </div>
+      <div className="middleFeed">
+        {/* <FeedSideBar /> */}
+        <FeedSideBar />
+        <FeedSubMain />
+      </div>
+
+      <div className="bottomFeed">
+        <FeedBottomBar />
+      </div>
+
+    </div>
   );
 }
 
