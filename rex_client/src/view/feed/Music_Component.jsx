@@ -3,12 +3,20 @@ function MusicBox() {
     <div className="music_box">
       <div className="music_information_div">
         <div className="music_name">Jun</div>
+
         <div className="music_recommender">
-          <img
-            className="music_recommender_photo"
-            src="https://shorturl.at/afOZ8"
-          ></img>
-          <p>David Lee</p>
+          <div className="music_recommender_profile">
+            <div className="recommender_profile_part1">
+              <img
+                className="music_recommender_photo"
+                src="https://shorturl.at/afOZ8"
+              ></img>
+              <p>David Lee</p>
+            </div>
+            <div className="recommend_date">
+              <p>2 days ago</p>
+            </div>
+          </div>
         </div>
         <div className="music_reviews">
           <p>Reviews (18)</p>
