@@ -23,3 +23,21 @@ html {
   display: flex;
   justify-content: space-between;
 }
+
+.home {
+  display: flex;
+  align-items: center; 
+}
+
+.home p {
+  margin: 0.5rem;
+  margin-left: 1.0rem;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.navText p {
+  margin: 0.5rem;
+  font-size: 1.5rem;
+}
+
