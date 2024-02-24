@@ -3,8 +3,8 @@ import FeedNav from "./feed_nav";
 import FeedSubMain from "./feed_subMain";
 import FeedBottomBar from "./feed_bottomBar";
 import FeedSideBar from "./feed_sidebar";
-
-function FeedMain() {
+import HomeMain from "../home/home_main";
+function Nav() {
   return (
     <div className="mainFeed">
       <div className="topFeed">
@@ -12,7 +12,7 @@ function FeedMain() {
       </div>
       <div className="middleFeed">
         <FeedSideBar />
-        <FeedSubMain />
+        <HomeMain />
       </div>
 
       <div className="bottomFeed">
@@ -21,4 +21,4 @@ function FeedMain() {
     </div>
   );
 }
-export default FeedMain;
+export default Nav;
