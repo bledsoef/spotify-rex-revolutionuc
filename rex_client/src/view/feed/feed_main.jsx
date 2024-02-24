@@ -2,12 +2,11 @@
 import FeedNav from "./Feed_nav";
 import FeedSubMain from "./Feed_subMain";
 import FeedBottomBar from "./Feed_bottomBar";
-import FeedSideBar from "./Feed_sidebar";
+import FeedSideBar from "./feed_sidebar";
 
 function FeedMain() {
   return (
-
-    <div className ="mainFeed">
+    <div className="mainFeed">
       <div className="topFeed">
         <FeedNav />
       </div>

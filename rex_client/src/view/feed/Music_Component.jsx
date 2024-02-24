@@ -1,25 +1,31 @@
 function MusicBox() {
   return (
-    <div className="music_box_div">
-      <div className="music_information">
-        <div className="music_details">
-          <div className="music_name">Run Joji</div>
-        </div>
+    <div className="music_box">
+      <div className="music_information_div">
+        <div className="music_name">Jun</div>
         <div className="music_recommender">
           <img
-            className="img_profile_photo"
-            src="https://www.amandaherbert.com/wp-content/uploads/2022/09/Mahima-Sukhdev-Headshots-100.jpg"
-            alt="Recommender"
-          />
-          <p>Jessica</p>
+            className="music_recommender_photo"
+            src="https://shorturl.at/afOZ8"
+          ></img>
+          <p>David Lee</p>
+        </div>
+        <div className="music_reviews">
+          <p>Reviews (18)</p>
+          <div className="individual_reviews_div">
+            <div>
+              <p>⭐⭐⭐⭐⭐</p>
+              <p>This is the best song of the year.</p>
+            </div>
+            <div>
+              <p>⭐⭐⭐⭐⭐</p>
+              <p>This is the best song of the year.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="music_cover_img">
-        <img
-          src="https://media.pitchfork.com/photos/6352cd4063dcacf1f2521078/3:2/w_1998,h_1332,c_limit/Taylor-Swift-Red.jpg"
-          alt="Music Cover"
-          className="cover_img"
-        />
+      <div className="music_cover">
+        <img src="https://media.pitchfork.com/photos/6352cd4063dcacf1f2521078/3:2/w_1998,h_1332,c_limit/Taylor-Swift-Red.jpg"></img>
       </div>
     </div>
   );

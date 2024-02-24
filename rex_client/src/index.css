@@ -37,38 +37,6 @@ html {
   border-radius: 50%;
 }
 
-.music_box_div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #121212;
-  color: white;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: orange;
-}
-
-.music_information {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.music_details {
-  flex-grow: 1;
-}
-
-.music_name {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.music_recommender {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .img_profile_photo {
   width: 50px;
   height: 50px;
@@ -158,3 +126,64 @@ svg {
   height: 1.4rem;
 }
 
+/* Music Box */
+.music_box {
+  /* background-color: green; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 40rem;
+  padding: 2rem 2rem;
+}
+
+.music_information_div {
+  /* background-color: orange; */
+  background-color: #ff4500;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  border-top-left-radius: 1.4rem;
+  border-bottom-left-radius: 1.4rem;
+}
+
+.music_information_div p {
+  font-size: 2rem;
+  padding: 2rem 2rem;
+}
+
+.music_recommender {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.music_name {
+  font-size: 6.4rem;
+}
+
+.music_recommender_photo {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+.music_cover {
+  /* background-color: yellow; */
+}
+.music_cover img {
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 1.4rem;
+}
+
+/* .music_reviews_div {
+  display: flex;
+  flex-direction: column;
+} */
+
+.individual_reviews_div {
+  display: flex;
+}
+
+.music_reviews {
+  display: flex;
+  flex-direction: column;
+}
