@@ -17,20 +17,20 @@ async def createRec(request: Request, db :Session = Depends(get_db)):
 
 @router.post("/createReview")
 async def createReview(request: Request, db :Session = Depends(get_db)):
-    rec_data = await request.json()
+    review_data = await request.json()
     try:
-        create_new_review(db, rec_data)
-        return {"message": "Rec created"}
+        create_new_review(db, review_data)
+        return {"message": "Review created"}
     except Exception as e:
         print(e)
-        return {"message": "Failed to create rec"}
+        return {"message": "Failed to create Review"}
     
 @router.get("/getSentRecsForUser")
 async def getSentRecsForUser(username: str, db: Session = Depends(get_db)):
     try:
-        accepted_recs = get_sent_recs(db, username)
+        sent_recs = get_sent_recs(db, username)
         
-        return accepted_recs
+        return sent_recs
     except Exception as e:
         print(e)
         return {"message": "Failed to get recs"}
