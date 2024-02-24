@@ -2,7 +2,7 @@
 import FeedNav from "./Feed_nav";
 import FeedSubMain from "./Feed_subMain";
 import FeedBottomBar from "./Feed_bottomBar";
-import FeedSideBar from "./feed_sidebar";
+import FeedSideBar from "./Feed_sidebar";
 
 function FeedMain() {
   return (
