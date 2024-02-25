@@ -3,7 +3,9 @@ import httpx
 from dotenv import load_dotenv
 from spotify_profile import get_user_profile, get_user_playlists, get_user_top_stats, get_user_picture
 import os
-
+import requests
+import spotipy
+from spotipy.oauth2 import SpotifyOAuth
 load_dotenv()
 
 router = APIRouter()
@@ -17,6 +19,7 @@ SPOTIFY_REDIRECT_URI = os.getenv("SPOTIFY_REDIRECT_URI")
 async def login():
     scopes = "user-read-private user-read-email user-top-read"
     auth_url = f"https://accounts.spotify.com/authorize?client_id={SPOTIFY_CLIENT_ID}&response_type=code&redirect_uri={SPOTIFY_REDIRECT_URI}&scope={scopes}"
+    print(auth_url)
     return {"url": auth_url}
 
 @router.get("/callback")
@@ -64,17 +67,16 @@ async def callback(code: str):
                                  "popularity": popularity,
                                  "duration": duration})
 
-            profile_info = {
-            "display_name": user_profile.get('display_name'),
-            "country": user_profile.get('country'),
-            "explicit_content": user_profile.get('explicit_content'),
-            "followers": user_profile.get('followers')['total'],
-            "user_picture": user_picture,
-            "top_artists": top_artists_info,
-            "top_tracks": top_tracks_info,
-            "playlists": [(item['name'], item['owner'], item['images']) for item in user_playlists.get('items')]
-        }
-        
+        profile_info = {
+        "display_name": user_profile.get('display_name'),
+        "country": user_profile.get('country'),
+        "explicit_content": user_profile.get('explicit_content'),
+        "followers": user_profile.get('followers')['total'],
+        "user_picture": user_picture,
+        "top_artists": top_artists_info,
+        "top_tracks": top_tracks_info,
+        "playlists": [(item['name'], item['owner'], item['images']) for item in user_playlists.get('items')]
+        }        
 
         print(profile_info)
         return profile_info

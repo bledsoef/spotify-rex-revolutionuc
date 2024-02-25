@@ -28,7 +28,6 @@ def create_new_review(db: Session, review_data):
         new_review = Review(createdBy=review_data['author'], rec_id=review_data['rec'], dateCreated=datetime.now(), comment=review_data['comment'], rating=review_data['rating'])
         rec = db.query(Rec).filter(Rec.id == review_data['rec']).first()
         rec.status = 'completed'
-        db.add(rec)
         db.add(new_review)
         db.commit()
     except Exception as e:

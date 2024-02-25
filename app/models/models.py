@@ -49,5 +49,4 @@ class Rec(Base):
     recipient = relationship("User", back_populates="received_recs", foreign_keys=[sentTo])
 
     # Explicitly define the join condition for the reviews relationship
-    reviews = relationship("Review", back_populates="rec_obj", foreign_keys=[Review.rec_id],
-                           primaryjoin="Rec.id == Review.rec_id")
+    reviews = relationship("Review", back_populates="rec_obj", foreign_keys=[Review.rec_id])

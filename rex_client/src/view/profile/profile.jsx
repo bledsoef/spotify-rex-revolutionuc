@@ -1,6 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Profile() {
+  const [feed, setFeed] = useState([]);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch("http://127.0.0.1:8000/auth/login");
+  //       const data = await response.json();
+  //       console.log(data)
+  //       setFeed(data);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
+
     return (
       <div className="user_profile_whole_div">
         <div className="user_profile">

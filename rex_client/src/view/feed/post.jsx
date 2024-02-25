@@ -1,56 +1,76 @@
 import { useState, useEffect } from "react";
 import { ref, getDownloadURL } from "firebase/storage";
-import {storage }from "../../firebase.js";
-function Post({post, reviews}) {
+import { storage } from "../../firebase.js";
+
+function Post({ post, reviews }) {
   const clickHandler = (e) => {
     e.preventDefault();
-    APIrequest()
+    APIrequest();
   };
+
   useEffect(() => {
-    fetchImageDownloadUrl(post["image"])
-    calculate()
-  }, [])    // Content for each tab
-  const [url, setUrl] = useState("")
-  const [average, setAverage] = useState(5.0)
+    fetchImageDownloadUrl(post["image"]);
+    calculate();
+  }, []);
+
+  const [url, setUrl] = useState("");
+  const [average, setAverage] = useState(5.0);
   const [isAccepted, setIsAccepted] = useState(false);
+  const [backgroundColor, setBackgroundColor] = useState("");
+
+  // Array of colors to choose from
+  const colors = ["bg-red-600", "bg-blue-600", "bg-green-600", "bg-yellow-600", "bg-orange-600", "bg-purple-600"];
+
+  // Function to select a random color
+  const getRandomColor = () => {
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    return colors[randomIndex];
+  };
+
   async function fetchImageDownloadUrl(img) {
     const fileRef = ref(storage, img);
     var res = getDownloadURL(fileRef)
-        .then((res) => setUrl(res))
-        .catch((error) => {
-        // Handle any errors
+      .then((res) => setUrl(res))
+      .catch((error) => {
         console.error("Error getting download URL:", error);
-        });
-    return res
+      });
+    return res;
   }
+
   const calculate = () => {
     let sum = 0;
     for (let i = 0; i < reviews.length; i++) {
       sum += reviews[i].rating;
     }
     setAverage(sum / reviews.length);
-  }
+  };
+
   const APIrequest = async () => {
-    fetch("http://127.0.0.1:8000/acceptRecFromPost", 
-    {
+    fetch("http://127.0.0.1:8000/acceptRecFromPost", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        "rec_id": post["id"],
-        "user_id": "finn",
+        rec_id: post["id"],
+        user_id: "finn",
       }),
-
-    }).then((response) => response.json()) // Parse the response as JSON
-    .then((data) => {
-        setIsAccepted(true)
-    }
-    ).catch(error => console.log(error))      
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setIsAccepted(true);
+      })
+      .catch((error) => console.log(error));
   };
+
+  useEffect(() => {
+    // Set a random background color when the component mounts
+    setBackgroundColor(getRandomColor());
+  }, []);
+
   return (
-    <div className="flex flex-row w-full">
-    <div className="flex flex-col bg-red-600 p-8 justify-between w-2/3 rounded-l-2xl shadow-lg">
+    <div className={`flex flex-row w-full`}>
+ <div className={`flex flex-col  ${backgroundColor} p-8 justify-between w-2/3 rounded-l-2xl shadow-lg`}>
     <div className="flex flex-row w-full justify-between">
       <div className="flex-col p-3">
         <div className="text-9xl font-semibold">{post["mediaName"]}</div>
@@ -110,8 +130,7 @@ function Post({post, reviews}) {
       alt="Music Cover"
     ></img>
   </div>
-</div>
-
+</div>    
   );
 }
 
