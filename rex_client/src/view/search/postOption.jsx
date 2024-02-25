@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function ShareList({ firstName, lastName }) {
+function PostOption() {
   const [isSelected, setIsSelected] = useState(false);
 
   const handleCircleClick = () => {
@@ -11,14 +11,8 @@ function ShareList({ firstName, lastName }) {
     <div className="scroll-content">
       <div className="flex flex-row justify-between items-center">
         <div className="flex flex-row items-center">
-          <div className="img">
-            <img
-              className="search_user_profile_img"
-              src="https://www.amandaherbert.com/wp-content/uploads/2022/09/Mahima-Sukhdev-Headshots-100.jpg"
-            />
-          </div>
-          <div className="user_profile_name_search ml-9">
-            <p>{firstName} {lastName}</p>
+          <div className="ml-9 text-4xl font-semibold">
+            <p>Post this to your following</p>
           </div>
         </div>
         <div className="flex flex-row items-center mr-20" onClick={handleCircleClick}>
@@ -34,4 +28,4 @@ function ShareList({ firstName, lastName }) {
   );
 }
 
-export default ShareList;
+export default PostOption;
