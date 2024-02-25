@@ -2,7 +2,7 @@ import MusicBox from "./Music_Component";
 
 function FeedSubMain() {
   return (
-    <div className="feed_main">
+    <div className="h-full">
       <MusicBox />
     </div>
   );

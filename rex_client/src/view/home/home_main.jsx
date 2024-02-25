@@ -25,7 +25,7 @@ const HomeMain = () => {
   };
 
   return (
-    <div className="bg-black text-white p-8 w-full">
+    <div className="bg-black text-white p-8 h-full w-full">
       <h1 className="text-6xl font-bold mb-4">Rex</h1>
 
       {/* Tab Buttons */}
