@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function RequestContent() {
+function RequestsContent() {
   const [requestOpen, setRequestOpen] = useState(true);
 
   if (requestOpen) {
@@ -135,4 +135,4 @@ function RequestContent() {
   }
 }
 
-export default RequestContent;
+export default RequestsContent;
