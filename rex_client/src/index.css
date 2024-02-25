@@ -6,6 +6,7 @@ html {
   font-size: 62.5%;
   background-color: black;
   color: white;
+  overflow-y: scroll;
 }
 
 .arrows {
@@ -63,7 +64,11 @@ html {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  overflow-y: scroll;
+  overflow-y: auto;
+  scrollbar-gutter: stable both-edges;
 }
+
 */ * {
   padding: 0;
   margin: 0;
@@ -417,6 +422,99 @@ user_profile_name. p {
   align-items: center;
 }
 
+/* Song tracks */
+.top_tracks_this_month {
+  /* background-color: green; */
+  padding: 0 2rem;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+.track {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto auto auto; /* Adjust column sizes */
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 2rem;
+}
+
+.track_img img {
+  width: 8rem;
+  height: 8rem;
+  border: 2rem;
+}
+
+.track_name_info p,
+.track_title p,
+.track_love p,
+.track_duration p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track_name_info p:nth-last-child(1) {
+  color: #8a8686;
+}
+
+.track_img img {
+  width: 8rem;
+  height: 8rem;
+  object-fit: cover;
+}
+
+.public_tracks {
+  /* background-color: green; */
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.public_track_div {
+  background-color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  width: 20rem;
+  margin: 1rem;
+}
+
+.public_playlist {
+  width: 100%;
+}
+
+.public_playlist_img img {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 1rem;
+  margin: auto;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.public_playlist > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.public_playlist > div:nth-child(2) p {
+  margin: 0.5rem 0;
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* fixing scroll bar issues */
+
+/* request */
+/* .request_main_div {
+  background-color: orange;
+} */
 /* SearchContent.css */
 .search-container {
   display: flex;
@@ -445,7 +543,7 @@ user_profile_name. p {
   font-size: 1.8rem;
 }
 
-.user_profile_name_search{
+.user_profile_name_search {
   display: flex;
   align-items: center;
   font-size: 2rem;
@@ -458,4 +556,3 @@ user_profile_name. p {
   border-radius: 50%;
   object-fit: cover;
 }
-
