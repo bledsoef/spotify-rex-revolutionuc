@@ -50,10 +50,14 @@ Spotify Rex is a web application that revolutionizes how users discover music re
 1. Clone the repository.
 2. Install dependencies: `npm install` or `yarn install`.
 3. Start the development server: `npm run dev` or `yarn dev`.
-4. Access the application at `http://localhost:3000`.
+4. Database Setup (see below)
+5. Access the application at `localhost`.
 
-## Getting Started
-
+## Database Setup
+1. Install a MySQL database server on your machine if you haven't already.
+2. Update the `connection.py` file with your MySQL database connection details, such as the database URL, username, and password.
+3. Run the `reset_database.py` script to create the necessary tables and initialize the database schema.
+5. Make sure the database is running and accessible before starting the application.
 
 ## Technologies Used
 
@@ -62,4 +66,4 @@ Spotify Rex is a web application that revolutionizes how users discover music re
 - Database: MySQL
 - Spotify API
 
-## Built by Finn, Steven, Ali and Daize from Berea College
+## Built by Finn, Steven, Ali, and Daize from Berea College
