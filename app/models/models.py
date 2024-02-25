@@ -33,7 +33,9 @@ class Rec(Base):
     __tablename__ = "recs"
     
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String(50))
+    mediaName = Column(String(50))
+    artistName = Column(String(50))
+    description = Column(String(500))
     createdBy = Column(String(50), ForeignKey("users.username"))
     sentTo = Column(String(50), ForeignKey("users.username"), nullable=True)
     isPost = Column(Boolean, nullable=False)

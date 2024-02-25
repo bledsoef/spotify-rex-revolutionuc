@@ -17,7 +17,7 @@ function FeedContent() {
     ).catch(error => console.log(error))      
   };
   return (
-    <div className="overflow-y-auto">
+    <div className="overflow-y-auto space-y-12 pt-4">
     {feed.map((item, index) => (
       <div key={index}>
       <Post key={index} post={item["post"]} reviews={item["reviews"]} />

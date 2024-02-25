@@ -2,7 +2,7 @@
 function Post({post, reviews}) {
   return (
     <div className="flex flex-row w-full">
-    <div className="flex flex-col bg-red-600 p-8 justify-between w-4/6 rounded-l-2xl">
+    <div className="flex flex-col bg-red-600 p-8 justify-between w-2/3 rounded-l-2xl">
     <div className="flex flex-row w-full justify-between">
       <div className="flex-col p-3">
         <div className="text-9xl font-semibold">Red</div>
