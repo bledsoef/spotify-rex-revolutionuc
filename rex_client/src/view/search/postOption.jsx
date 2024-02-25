@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
-function PostOption() {
+function PostOption({toggleIsPost}) {
   const [isSelected, setIsSelected] = useState(false);
 
   const handleCircleClick = () => {
     setIsSelected(!isSelected);
+    toggleIsPost(isSelected);
   };
 
   return (

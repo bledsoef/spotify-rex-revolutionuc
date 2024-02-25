@@ -2,9 +2,10 @@ from sqlalchemy.orm import Session, aliased
 from app.models.models import Rec, Review
 from datetime import datetime
 def create_new_rec(db: Session, rec_data):
+    print(rec_data)
     for recipient in rec_data['recipients']:  
         try:
-            new_rec = Rec(mediaName=rec_data['mediaName'], artistName=rec_data["artistName"], description=rec_data["description"], createdBy=rec_data['sender'], sentTo=recipient, isPost=rec_data['isPost'], image=("".join([i.lower() for i in rec_data["mediaName"]])), status="pending")
+            new_rec = Rec(mediaName=rec_data['mediaName'], artistName=rec_data["artistName"], description=rec_data["description"], createdBy=rec_data['sender'], sentTo=recipient, isPost=rec_data['isPost'], image=("/album_covers/"+"".join([i.lower() for i in rec_data["mediaName"]])), status="pending")
             db.add(new_rec)
             db.commit()
         except Exception as e:

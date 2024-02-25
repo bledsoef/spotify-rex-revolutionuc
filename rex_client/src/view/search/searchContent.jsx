@@ -2,13 +2,19 @@ import React, { useState } from 'react';
 import PostOption from './postOption';
 import ShareList from './shareList';
 
-function SearchContent() {
+function SearchContent({handleIsPostSelected, handleSetSelectedUsers}) {
   const [selectedUsers, setSelectedUsers] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [isPost, setIsPost] = useState(false);
 
+  const handleIsPost = (post) => {
+    setIsPost(post);
+    handleIsPostSelected(isPost);
+    console.log("hi")
+  }
   const handleUserSelect = (user) => {
     const userIndex = selectedUsers.findIndex(
-      (u) => u.userName === user.userName
+      (u) => u.username === user.username
     );
     if (userIndex !== -1) {
       const updatedSelectedUsers = [...selectedUsers];
@@ -17,6 +23,7 @@ function SearchContent() {
     } else {
       setSelectedUsers([...selectedUsers, user]);
     }
+    handleSetSelectedUsers(selectedUsers);
   };
 
   const handleInputChange = (e) => {
@@ -25,11 +32,11 @@ function SearchContent() {
 
   // Simulated database of users
   const users = [
-    { firstName: "Jessica", lastName: "Parker", userName: "jessica" },
-    { firstName: "Stevenson", lastName: "Michel", userName: "stevenson" },
-    { firstName: "Silas", lastName: "Fair", userName: "silas" },
-    { firstName: "Ali", lastName: "Ramazani", userName: "ali" },
-    { firstName: "Daize", lastName: "Njounkeng", userName: "daize" },
+    { firstName: "Jessica", lastName: "Parker", username: "jessica" },
+    { firstName: "Stevenson", lastName: "Michel", username: "stevenson" },
+    { firstName: "Silas", lastName: "Fair", username: "silas" },
+    { firstName: "Ali", lastName: "Ramazani", username: "ali" },
+    { firstName: "Daize", lastName: "Njounkeng", username: "daize" },
   ];
 
   // Filter users based on search query
@@ -53,13 +60,13 @@ function SearchContent() {
       </div>
 
       <div className="scroll-div">
-        <PostOption />
+        <PostOption toggleIsPost={handleIsPost} />
         {filteredUsers.map(user => (
           <ShareList
-            key={user.userName}
+            key={user.username}
             firstName={user.firstName}
             lastName={user.lastName}
-            userName={user.userName}
+            username={user.username}
             onUserSelect={handleUserSelect}
           />
         ))}
