@@ -1,9 +1,6 @@
 import { useState } from "react";
 
-function Profile({ isProfileVisible, toggleProfileVisibility }) {
-  if (!isProfileVisible) {
-    return null;
-  } else {
+function Profile() {
     return (
       <div className="user_profile_whole_div">
         <div className="user_profile">
@@ -20,28 +17,6 @@ function Profile({ isProfileVisible, toggleProfileVisibility }) {
             <p>10 Public Playlists</p>
             <p>0 followers</p>
             <p>10 following</p>
-          </div>
-          <div className="ml-auto">
-            <button
-              onClick={toggleProfileVisibility}
-              className="text-2xl flex gap-2 align-middle"
-            >
-              Close{" "}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="w-6 h-6 text-2xl"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18 18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
           </div>
         </div>
         <div>
@@ -290,7 +265,6 @@ function Profile({ isProfileVisible, toggleProfileVisibility }) {
         </div>
       </div>
     );
-  }
 }
 
 export default Profile;

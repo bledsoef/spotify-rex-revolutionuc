@@ -31,7 +31,7 @@ function NavBar({ toggleProfile }) {
         </div>
       </div>
       <div className="arrows"></div>
-      <div className="profile" onClick={toggleProfileInfo}>
+      <div className="profile" onClick={() => toggleProfileInfo()}>
         <div className="profile_photo">
           <img
             className="img_profile_photo"
@@ -60,7 +60,7 @@ function NavBar({ toggleProfile }) {
         {isProfileInfoVisible && (
           <div className="profile_topright">
             <ul>
-              <li className="account-item" onClick={() => toggleProfile()}>
+              <li className="account-item" onClick={() => toggleProfile(6)}>
                 Account
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +77,7 @@ function NavBar({ toggleProfile }) {
                   />
                 </svg>
               </li>
-              <li onClick={() => toggleProfile()}>Profile</li>
+              <li onClick={() => toggleProfile(6)}>Profile</li>
 
               <li>Setting</li>
               <li className="logout-item">Logout</li>
