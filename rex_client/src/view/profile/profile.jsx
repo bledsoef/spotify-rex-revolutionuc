@@ -133,8 +133,134 @@ function Profile() {
           </div>
         </div>
       </div>
-      <div className="top_tracks_this_month"></div>
-      <div className="public_tracks"></div>
+      <div>
+        <h1 className="profile_h1">Top tracks this month</h1>
+      </div>
+      <div className="top_tracks_this_month">
+        <div className="track">
+          <div>
+            <p>1</p>
+          </div>
+          <div className="track_img">
+            <img src="https://i.scdn.co/image/ab67616d0000b273d51db39e6ac669a7dcd04b36"></img>
+          </div>
+          <div className="track_name_info">
+            <p>Pegao</p>
+            <p>CNCO, Manuel Turizo</p>
+          </div>
+          <div className="track_title">
+            <p>Illusions</p>
+          </div>
+          <div className="track_love">
+            <p>💚</p>
+          </div>
+          <div className="track_duration">
+            <p>3:47</p>
+          </div>
+        </div>
+        <div className="track">
+          <div>
+            <p>2</p>
+          </div>
+          <div className="track_img">
+            <img src="https://i.scdn.co/image/ab67616d0000b273d51db39e6ac669a7dcd04b36"></img>
+          </div>
+          <div className="track_name_info">
+            <p>Pegao</p>
+            <p>CNCO, Manuel Turizo</p>
+          </div>
+          <div className="track_title">
+            <p>Illusions</p>
+          </div>
+          <div className="track_love">
+            <p>💚</p>
+          </div>
+          <div className="track_duration">
+            <p>3:47</p>
+          </div>
+        </div>
+        <div className="track">
+          <div>
+            <p>3</p>
+          </div>
+          <div className="track_img">
+            <img src="https://i.scdn.co/image/ab67616d0000b273d51db39e6ac669a7dcd04b36"></img>
+          </div>
+          <div className="track_name_info">
+            <p>Pegao</p>
+            <p>CNCO, Manuel Turizo</p>
+          </div>
+          <div className="track_title">
+            <p>Illusions</p>
+          </div>
+          <div className="track_love">
+            <p>💚</p>
+          </div>
+          <div className="track_duration">
+            <p>3:47</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h1 className="profile_h1">Public Playlists</h1>
+      </div>
+      <div className="public_tracks">
+        <div className="public_track_div">
+          <div className="public_playlist">
+            <div className="public_playlist_img">
+              <img src="https://m.media-amazon.com/images/I/51wQlBQ+MgL._UF1000,1000_QL80_.jpg"></img>
+            </div>
+            <div>
+              <p>El Dorado</p>
+              <p>By Jessica</p>
+            </div>
+          </div>
+        </div>
+        <div className="public_track_div">
+          <div className="public_playlist">
+            <div className="public_playlist_img">
+              <img src="https://m.media-amazon.com/images/I/51wQlBQ+MgL._UF1000,1000_QL80_.jpg"></img>
+            </div>
+            <div>
+              <p>Playlist Name 2</p>
+              <p>By Artist 2</p>
+            </div>
+          </div>
+        </div>
+        <div className="public_track_div">
+          <div className="public_playlist">
+            <div className="public_playlist_img">
+              <img src="https://m.media-amazon.com/images/I/51wQlBQ+MgL._UF1000,1000_QL80_.jpg"></img>
+            </div>
+            <div>
+              <p>Playlist Name 2</p>
+              <p>By Artist 2</p>
+            </div>
+          </div>
+        </div>
+        <div className="public_track_div">
+          <div className="public_playlist">
+            <div className="public_playlist_img">
+              <img src="https://m.media-amazon.com/images/I/51wQlBQ+MgL._UF1000,1000_QL80_.jpg"></img>
+            </div>
+            <div>
+              <p>Playlist Name 2</p>
+              <p>By Artist 2</p>
+            </div>
+          </div>
+        </div>
+        <div className="public_track_div">
+          <div className="public_playlist">
+            <div className="public_playlist_img">
+              <img src="https://m.media-amazon.com/images/I/51wQlBQ+MgL._UF1000,1000_QL80_.jpg"></img>
+            </div>
+            <div>
+              <p>Playlist Name 2</p>
+              <p>By Artist 2</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
