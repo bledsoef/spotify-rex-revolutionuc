@@ -2,7 +2,7 @@
 
 Spotify Rex is a web application that revolutionizes how users discover music recommendations from their friends and community.
 
-<img src="https://github.com/bledsoef/spotify-rex-revolutionuc/assets/89226977/9a552caf-05e3-4815-b895-da3d757435e9" alt="image" height="300" width="500">
+<img src="https://github.com/bledsoef/spotify-rex-revolutionuc/assets/89226977/9a552caf-05e3-4815-b895-da3d757435e9" alt="image" height="300" width="600">
 
 
 
@@ -51,6 +51,9 @@ Spotify Rex is a web application that revolutionizes how users discover music re
 2. Install dependencies: `npm install` or `yarn install`.
 3. Start the development server: `npm run dev` or `yarn dev`.
 4. Access the application at `http://localhost:3000`.
+
+## Getting Started
+
 
 ## Technologies Used
 
