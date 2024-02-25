@@ -23,7 +23,7 @@ class Review(Base):
     createdBy = Column(String(50), ForeignKey("users.username"))
     rec_id = Column(Integer, ForeignKey("recs.id"), nullable=False)  # Change data type to INTEGER
     dateCreated = Column(Date, nullable=False)
-    comment = Column(String(50), nullable=True)
+    comment = Column(String(100), nullable=True)
     rating = Column(Integer, nullable=True)
 
     creator = relationship("User", back_populates="created_reviews", foreign_keys=[createdBy])

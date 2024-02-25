@@ -1,11 +1,14 @@
 import AcceptedRec from "./acceptedRec";
 import CompletedRec from "./completedRec";
+import CreateReview from "../reviews/createReview";
 
 import { useState, useEffect } from "react";
 
 function ReceivedContent() {
   const [accepted, setAccepted] = useState([]);
   const [completed, setCompleted] = useState([]);
+  const [rec, setRec] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       await APIrequest()
@@ -20,23 +23,30 @@ function ReceivedContent() {
     }
     ).catch(error => console.log(error))      
   };
+  const toggleShowModal = (rec) => {
+    setShowModal(!showModal);
+    setRec(rec)
+  }
   return (
     <div className="feed_main">
         <div className="flex w-full">
+            {showModal && <CreateReview rec={rec} handleToggleShowModal={toggleShowModal}/>}
             
             <div className="w-1/2">
-              <h2 className=" text-4xl font-medium mt-3 ">Completed</h2>
-              <div className="flex flex-wrap space-x-8">
-                  {completed.map((item, index) => (
-                    <CompletedRec key={index} post={item["rec"]} review={item["review"]}/>
+                <h2 className=" text-4xl font-medium mt-3">Accepted </h2>
+                <div className="flex flex-wrap space-x-8">
+                  {accepted.map((item, index) => (
+                    <button className="w-full" value={item} onClick={() => toggleShowModal(item)}>
+                      <AcceptedRec key={index} post={item}/>
+                    </button>
                   ))}
                 </div> 
             </div>
             <div className="w-1/2 ml-8">
-                <h2 className=" text-4xl font-medium mt-3">Accepted </h2>
-                <div className="flex flex-wrap space-x-8">
-                  {accepted.map((item, index) => (
-                    <AcceptedRec key={index} post={item}/>
+              <h2 className=" text-4xl font-medium mt-3 ">Completed</h2>
+              <div className="flex flex-wrap">
+                  {completed.map((item, index) => (
+                    <CompletedRec key={index} post={item["rec"]} review={item["review"]}/>
                   ))}
                 </div> 
             </div>
