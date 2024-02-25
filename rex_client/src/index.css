@@ -309,7 +309,7 @@ html {
   color: #959292;
 }
 
-.user_profile_name p {
+user_profile_name. p {
   font-size: 3rem;
 }
 
@@ -416,3 +416,46 @@ html {
   justify-content: center;
   align-items: center;
 }
+
+/* SearchContent.css */
+.search-container {
+  display: flex;
+  margin-top: 2rem;
+}
+
+.search-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #666;
+  border-radius: 30px;
+  background-color: #444;
+  color: white;
+  font-size: 20px;
+}
+
+.cancel-button {
+  color: white;
+  padding: 1px 30px;
+  font-size: 1.8rem;
+}
+
+.user_profile_name_search{
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  gap: 5rem;
+}
+
+.search_user_profile_img {
+  width: 5rem;
+  height: 5em;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
