@@ -5,7 +5,7 @@ function RequestsContent() {
   const [requests, setRequests] = useState([]);
 
   const APIRequest = () => {
-    fetch("http://127.0.0.1:8000/getRequestsForUser?username=finn").then((response) => response.json()).then((data) => setRequests(data)).catch(error => console.log(error));
+    fetch("http://127.0.0.1:8000/getRequestsForUser?username=Finn").then((response) => response.json()).then((data) => setRequests(data)).catch(error => console.log(error));
   }
 
   useEffect(() => {

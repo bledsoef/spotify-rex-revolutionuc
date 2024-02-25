@@ -2,19 +2,33 @@ from sqlalchemy.orm import Session, aliased
 from app.models.models import Rec, Review
 from datetime import datetime
 def create_new_rec(db: Session, rec_data):
-    for recipient in rec_data['recipients']:  
+    print(rec_data)
+    if not rec_data["isPost"]:
+        for recipient in rec_data['recipients']:  
+            try:
+                new_rec = Rec(mediaName=rec_data['mediaName'], artistName=rec_data["artistName"], description=rec_data["description"], createdBy=rec_data['sender'], sentTo=recipient, isPost=False, image=("/album_covers/"+"".join([i.lower() for i in rec_data["mediaName"]])), status="pending")
+                db.add(new_rec)
+                db.commit()
+            except Exception as e:
+                print(e)
+                return False
+    else:
         try:
-            new_rec = Rec(mediaName=rec_data['mediaName'], artistName=rec_data["artistName"], description=rec_data["description"], createdBy=rec_data['sender'], sentTo=recipient, isPost=rec_data['isPost'], image=("".join([i.lower() for i in rec_data["mediaName"]])), status="pending")
+            new_rec = Rec(mediaName=rec_data['mediaName'], artistName=rec_data["artistName"], description=rec_data["description"], createdBy=rec_data['sender'], sentTo=None, isPost=True, image=("/album_covers/"+"".join([i.lower() for i in rec_data["mediaName"]])), status="pending")
             db.add(new_rec)
             db.commit()
         except Exception as e:
             print(e)
             return False
+    
     return True
 
 def create_new_review(db: Session, review_data):
     try:
         new_review = Review(createdBy=review_data['author'], rec_id=review_data['rec'], dateCreated=datetime.now(), comment=review_data['comment'], rating=review_data['rating'])
+        rec = db.query(Rec).filter(Rec.id == review_data['rec']).first()
+        rec.status = 'completed'
+        db.add(rec)
         db.add(new_review)
         db.commit()
     except Exception as e:

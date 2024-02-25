@@ -9,7 +9,6 @@ function Main() {
   const handleTabChange = (newIndex) => {
     setTab(newIndex);
   };
-  const [profileOpen, setProfileOpen] = useState(true);
 
   return (
     <div className="mainFeed">

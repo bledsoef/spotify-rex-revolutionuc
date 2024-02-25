@@ -1,12 +1,12 @@
 // ShareList.js
 import React, { useState } from 'react';
 
-function ShareList({ firstName, lastName, userName, onUserSelect }) {
+function ShareList({ firstName, lastName, username, onUserSelect }) {
   const [isSelected, setIsSelected] = useState(false);
 
   const handleCircleClick = () => {
     setIsSelected(!isSelected);
-    onUserSelect({ userName: userName}); // Pass user information and isSelected state to parent component
+    onUserSelect({ username: username}); // Pass user information and isSelected state to parent component
   };
 
   return (

@@ -5,6 +5,7 @@ import SearchContent from "./searchContent";
 
 export default function CreateRec() {
     const [url, setUrl] = useState("");
+    const [isPost, setIsPost] = useState(false);
     const [description, setDescription] = useState("");
     const [selectedUsers, setSelectedUsers] = useState([]);
 
@@ -12,11 +13,20 @@ export default function CreateRec() {
         setDescription(e.target.value);
     }
 
+    const handleSetIsPost = (isPost) => {
+        setIsPost(isPost)
+        console.log("hello")
+    }
+
     const handleSubmit = async () => {
         const usernames = selectedUsers.map(user => user.userName)
         const requestData = {
             description: description,
-            usernames: usernames
+            recipients: isPost ? null : usernames,
+            createdBy: "Finn",
+            mediaName: "Empire Ants",
+            artistName: "Gorillaz",
+            isPost: isPost,
         };
         // Sending requestData to the backend
         try {
@@ -60,7 +70,7 @@ export default function CreateRec() {
             <button className="text-3xl bg-green-500 px-12 py-5 rounded-full" onClick={handleSubmit}>Send</button>
         </div>
     </div>
-    <SearchContent setSelectedUsers={setSelectedUsers} />
+    <SearchContent handleSetSelectedUsers={setSelectedUsers} handleIsPostSelected={handleSetIsPost} />
 </div>
 
 

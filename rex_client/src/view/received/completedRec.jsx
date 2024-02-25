@@ -19,8 +19,8 @@ function completedRec({post, review}) {
     return res
     }
   return (
-    <div className="flex flex-col w-5/12 pt-5">
-      <div className={`flex bg-red-500 rounded-2xl pt-2 w-full`}>
+    <div className="flex flex-col w-5/12 pt-5 mr-7 mb-3">
+      <div className={`flex bg-red-600 rounded-2xl pt-2 w-full`}>
         <div className="flex flex-col w-full">
           <div className="flex flex-row w-full justify-between p-3 px-8">
             <div className="flex flex-col">
@@ -52,8 +52,15 @@ function completedRec({post, review}) {
               alt="Music Cover"
             />
           </div>
-          <div>
-            <p className="">{review["comment"]}</p>
+          <div className="w-full text-center">
+            <div className="flex-col p-4 w-full text-center flex text-5xl pb-6">
+              {review["rating"] == 1 && <p>⭐</p>}
+              {review["rating"] == 2 && <p>⭐⭐</p>}
+              {review["rating"] == 3 && <p>⭐⭐⭐</p>}
+              {review["rating"] == 4 && <p>⭐⭐⭐⭐</p>}
+              {review["rating"] == 5 && <p>⭐⭐⭐⭐⭐</p>}
+            </div>
+            <p className="px-4 text-3xl">{review["comment"]}</p>
           </div>
         </div>
         </div>
