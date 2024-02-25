@@ -3,14 +3,24 @@ from app.models.models import Rec, Review
 from datetime import datetime
 def create_new_rec(db: Session, rec_data):
     print(rec_data)
-    for recipient in rec_data['recipients']:  
+    if not rec_data["isPost"]:
+        for recipient in rec_data['recipients']:  
+            try:
+                new_rec = Rec(mediaName=rec_data['mediaName'], artistName=rec_data["artistName"], description=rec_data["description"], createdBy=rec_data['sender'], sentTo=recipient, isPost=False, image=("/album_covers/"+"".join([i.lower() for i in rec_data["mediaName"]])), status="pending")
+                db.add(new_rec)
+                db.commit()
+            except Exception as e:
+                print(e)
+                return False
+    else:
         try:
-            new_rec = Rec(mediaName=rec_data['mediaName'], artistName=rec_data["artistName"], description=rec_data["description"], createdBy=rec_data['sender'], sentTo=recipient, isPost=rec_data['isPost'], image=("/album_covers/"+"".join([i.lower() for i in rec_data["mediaName"]])), status="pending")
+            new_rec = Rec(mediaName=rec_data['mediaName'], artistName=rec_data["artistName"], description=rec_data["description"], createdBy=rec_data['sender'], sentTo=None, isPost=True, image=("/album_covers/"+"".join([i.lower() for i in rec_data["mediaName"]])), status="pending")
             db.add(new_rec)
             db.commit()
         except Exception as e:
             print(e)
             return False
+    
     return True
 
 def create_new_review(db: Session, review_data):
