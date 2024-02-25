@@ -1,20 +1,21 @@
 import MusicCard from "./music_card";
 
-function SentSubMain() {
+function ReceivedContent() {
   return (
     <div className="feed_main">
-    <h1 className=" text-3xl font-bold">Sent Recommendations</h1>
+    <h1 className=" text-3xl font-bold">Received Recommendations</h1>
         <div className="flex">
             <div className="pendingMusic">
-                <h2 className=" text-2xl font-medium mt-4">Completed </h2>
+                <h2 className=" text-2xl font-medium mt-4">Pending </h2>
                 <MusicCard/>
             </div>
             <div className="completedMusic">
-                <h2 className=" text-2xl font-medium mt-4">Pending </h2>
+                <h2 className=" text-2xl font-medium mt-4">Completed </h2>
                 <MusicCard/>
             </div>
         </div>
     </div>
   );
 }
-export default SentSubMain;
+
+export default ReceivedContent;

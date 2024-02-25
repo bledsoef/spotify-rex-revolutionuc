@@ -1,22 +1,20 @@
 // Import React and useState hook
 import React, { useState } from 'react';
-import FeedMain from '../feed/feed_main';
-// Import Tailwind CSS for styling
 import 'tailwindcss/tailwind.css';
-import FeedSubMain from '../feed/feed_subMain';
-import ReceivedSubMain from '../received/received_subMain';
-import SentSubMain from '../sent/sent_subMain';
+import FeedContent from '../feed/feedContent';
+import ReceivedContent from '../received/receivedContent';
+import SentContent from '../sent/sentContent';
 
 // Main App Component
-const HomeMain = () => {
+const TabView = () => {
   // State to manage the active tab
   const [activeTab, setActiveTab] = useState(1);
 
   // Content for each tab
   const tabContents = {
-    1: <FeedSubMain/>,
-    2: <ReceivedSubMain/>,
-    3: <SentSubMain/>,
+    1: <FeedContent/>,
+    2: <ReceivedContent/>,
+    3: <SentContent/>,
   };
 
   // Function to handle tab change
@@ -62,4 +60,4 @@ const HomeMain = () => {
   );
 };
 
-export default HomeMain;
+export default TabView;

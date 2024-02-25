@@ -1,10 +1,10 @@
 import React from "react";
-import Nav from "./view/feed/feed_main";
+import Main from "./view/home/main";
 
 function App() {
   return (
     <>
-      <Nav />
+      <Main />
     </>
   );
 }

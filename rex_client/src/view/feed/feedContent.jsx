@@ -1,7 +1,7 @@
-import MusicBox from "./Music_Component";
+import Post from "./post";
 import { useState, useEffect } from "react";
 
-function FeedSubMain() {
+function FeedContent() {
   const [feed, setFeed] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -16,17 +16,15 @@ function FeedSubMain() {
     }
     ).catch(error => console.log(error))      
   };
-  console.log(feed);
   return (
-    <div className="h-full">
-      {feed.map((item, index) => (
-        <div>
-          {console.log(index)}
-          <MusicBox key={index} post={item["post"]} reviews={item["reviews"]} />
+    <div className="overflow-y-auto">
+    {feed.map((item, index) => (
+      <div key={index}>
+      <Post key={index} post={item["post"]} reviews={item["reviews"]} />
         </div>
       ))}
     </div>
   );
 }
 
-export default FeedSubMain;
+export default FeedContent;

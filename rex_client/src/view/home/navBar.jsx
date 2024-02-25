@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function FeedNav() {
+function NavBar() {
   const [isProfileInfoVisible, setIsProfileInfoVisible] = useState(false);
   const toggleProfileInfo = () => {
     setIsProfileInfoVisible(!isProfileInfoVisible);
@@ -102,4 +102,4 @@ function FeedNav() {
   );
 }
 
-export default FeedNav;
+export default NavBar;

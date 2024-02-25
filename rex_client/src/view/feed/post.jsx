@@ -1,5 +1,5 @@
 
-function MusicBox({post, reviews}) {
+function Post({post, reviews}) {
   return (
     <div className="flex flex-row w-full">
     <div className="flex flex-col bg-red-600 p-8 justify-between w-4/6 rounded-l-2xl">
@@ -56,4 +56,4 @@ function MusicBox({post, reviews}) {
   );
 }
 
-export default MusicBox;
+export default Post;
