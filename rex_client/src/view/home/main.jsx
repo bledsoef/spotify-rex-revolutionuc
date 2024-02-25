@@ -7,11 +7,11 @@ import Profile from "../profile/profile";
 
 import ListeningBar from "../home/listeningBar";
 function Main() {
-  const [profileOpen, setProfileOpen] = useState(true);
+  const [profileOpen, setProfileOpen] = useState(false);
   const [requestsOpen, setRequestsOpen] = useState(false);
 
   const toggleProfileOpen = () => {
-    setProfileOpen(!profileOpen);
+    setProfileOpen(!profileOpen); // Toggle the visibility
   };
 
   return (
@@ -26,7 +26,12 @@ function Main() {
           </div>
         </div>
       </div>
-      {profileOpen && <Profile onClick={toggleProfileOpen} />}
+      {profileOpen && (
+        <Profile
+          isProfileVisible={profileOpen}
+          toggleProfileVisibility={toggleProfileOpen}
+        />
+      )}
     </div>
   );
 }

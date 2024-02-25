@@ -3,16 +3,14 @@ import React, { useState } from "react";
 function NavBar({ toggleProfile }) {
   const [isProfileInfoVisible, setIsProfileInfoVisible] = useState(false);
 
-  // Toggle the visibility of the dropdown menu
   const toggleProfileInfo = () => {
     setIsProfileInfoVisible(!isProfileInfoVisible);
   };
 
-  // Handle "Profile" item click to toggle detailed profile information
   const handleProfileClick = (event) => {
-    event.stopPropagation(); // Prevent event from affecting other elements
-    toggleProfile(); // Toggle profile visibility in the Main component
-    setIsProfileInfoVisible(false); // Optionally close the dropdown menu
+    event.stopPropagation(); // Prevents event bubbling
+    toggleProfile(); // This should show the profile, ensure toggleProfile sets state correctly in Main
+    setIsProfileInfoVisible(false); // Closes the dropdown menu
   };
 
   return (
@@ -32,7 +30,7 @@ function NavBar({ toggleProfile }) {
           <p>Spotify</p>
         </div>
       </div>
-      <div className="arrows">{/* Arrow icons */}</div>
+      <div className="arrows"></div>
       <div className="profile" onClick={toggleProfileInfo}>
         <div className="profile_photo">
           <img
@@ -62,7 +60,7 @@ function NavBar({ toggleProfile }) {
         {isProfileInfoVisible && (
           <div className="profile_topright">
             <ul>
-              <li className="account-item">
+              <li className="account-item" onClick={() => toggleProfile()}>
                 Account
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +77,8 @@ function NavBar({ toggleProfile }) {
                   />
                 </svg>
               </li>
-              <li onClick={handleProfileClick}>Profile</li>
+              <li onClick={() => toggleProfile()}>Profile</li>
+
               <li>Setting</li>
               <li className="logout-item">Logout</li>
             </ul>
