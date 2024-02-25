@@ -277,3 +277,142 @@ html {
   width: 1.8rem;
   height: 1.8rem;
 }
+
+/* Profile */
+.user_profile_whole_div {
+  /* background-color: green; */
+  margin-left: 25rem;
+  padding: 2rem 2rem;
+  font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.user_profile {
+  /* background-color: aquamarine; */
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.user_account_profile_img {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile_extra_info {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.4rem;
+  font-size: 1.4rem;
+  color: #959292;
+}
+
+.user_profile_name p {
+  font-size: 3rem;
+}
+
+.top_artists_this_month {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 4rem;
+}
+
+.profile_h1 {
+  font-size: 3.4rem;
+  margin-top: 5rem;
+}
+
+.only_visible_to_you {
+  font-size: 1.6rem;
+  color: #959292;
+}
+
+.artist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+  flex-basis: 20%;
+}
+
+.artist p {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.artist img {
+  width: 15rem;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.follower_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #333;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.follower_photo {
+  background-color: #333;
+}
+
+.follower_username_name {
+  display: flex;
+  flex-direction: column;
+}
+
+.follower_card img {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.follower_photo img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.follower_username_name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.follow_cards {
+  display: flex;
+  margin-top: -8rem;
+}
+
+.follow_card {
+  margin-top: 5rem;
+  padding: 5rem;
+}
+
+.follow_card img {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  margin-bottom: 1.6rem;
+}
+
+.exp {
+  background-color: #333;
+  width: 20rem;
+  height: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

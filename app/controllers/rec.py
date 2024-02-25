@@ -82,7 +82,11 @@ async def getFeed(username: str, db: Session = Depends(get_db)):
         non_user_posts = get_non_user_posts(db, username)
         result = []
         for post in non_user_posts:
+<<<<<<< HEAD
             reviews = [entry.__dict__ for entry in get_post_review(db, post.id)]
+=======
+            reviews = [entry.__dict__ for entry in  get_post_review(db, post.id)]
+>>>>>>> e42fc6c7d27de74fc831228ae9f053c20e7cebb7
             result.append({"post":post, "reviews": reviews})
         
         return result
