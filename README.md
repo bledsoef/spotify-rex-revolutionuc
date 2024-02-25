@@ -2,7 +2,7 @@
 
 Spotify Rex is a web application that revolutionizes how users discover music recommendations from their friends and community.
 
-<img src="https://github.com/bledsoef/spotify-rex-revolutionuc/assets/89226977/9a552caf-05e3-4815-b895-da3d757435e9" alt="image" height="200" width="400">
+<img src="https://github.com/bledsoef/spotify-rex-revolutionuc/assets/89226977/9a552caf-05e3-4815-b895-da3d757435e9" alt="image" height="300" width="500">
 
 
 
@@ -25,7 +25,7 @@ Spotify Rex is a web application that revolutionizes how users discover music re
 - **src**: Frontend source code.
   - **view**: Contains views and components.
   - **feed**, **home**, **profile**, **received**, **requests**, **reviews**, **search**: Different views for the application.
-- **rex_client**: Possibly a client-side application or module.
+- **rex_client**: Client-side application or module.
 - **node_modules**: Node.js dependencies.
 - **README.md**: You're currently reading it!
 - **package.json**, **package-lock.json**: Node.js package configuration files.
@@ -40,6 +40,6 @@ Spotify Rex is a web application that revolutionizes how users discover music re
 ## Technologies Used
 
 - Frontend: React.js, Tailwind CSS, React Router
-- Backend: FastAPI (Python), SQLAlchemy (Python)
+- Backend: Python
 - Database: MySQL
 - Spotify API
