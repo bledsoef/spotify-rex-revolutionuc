@@ -26,29 +26,31 @@ const HomeMain = () => {
 
   return (
     <div className="bg-black text-white p-8 h-full w-full">
-      <h1 className="text-6xl font-bold mb-4">Rex</h1>
-
-      {/* Tab Buttons */}
-      <div className="flex mb-4 justify-center">
-        <button
-          className={`text-4xl py-5 px-8 rounded-l-full ${activeTab === 1 ? 'bg-gray-800' : 'bg-gray-600'}`}
-          onClick={() => handleTabChange(1)}
-        >
-          Feed
-        </button>
-        <button
-          className={`text-4xl py-5 px-8  ${activeTab === 2 ? 'bg-gray-800' : 'bg-gray-600'}`}
-          onClick={() => handleTabChange(2)}
-        >
-          Received
-        </button>
-        <button
-          className={`text-4xl py-5 px-8 rounded-r-full ${activeTab === 3 ? 'bg-gray-800' : 'bg-gray-600'}`}
-          onClick={() => handleTabChange(3)}
-        >
-          Sent
-        </button>
+      <div className='flex flex-row w-full justify-between'>
+        <h1 className="text-6xl font-bold mb-4">Rex</h1>
+        {/* Tab Buttons */}
+        <div className="flex space-x-4 mb-4 pr-16">
+          <button
+            className={`text-4xl py-3 px-8 rounded-full ${activeTab === 1 ? 'bg-green-600 text-black font-normal' : 'bg-gray-800'}`}
+            onClick={() => handleTabChange(1)}
+          >
+            Feed
+          </button>
+          <button
+            className={`text-4xl py-3 px-8 rounded-full ${activeTab === 2 ? 'bg-green-600 text-black font-normal' : 'bg-gray-800'}`}
+            onClick={() => handleTabChange(2)}
+          >
+            Received
+          </button>
+          <button
+            className={`text-4xl py-3 px-8 rounded-full ${activeTab === 3 ? 'bg-green-600 text-black font-normal' : 'bg-gray-800'}`}
+            onClick={() => handleTabChange(3)}
+          >
+            Sent
+          </button>
+        </div>
       </div>
+
 
       {/* Tab Content */}
       <div>
