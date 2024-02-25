@@ -47,7 +47,7 @@ function MusicBox() {
     </div>
   </div>
 
-  <div className="flex-shrink-0 h-600 w-600">
+  <div className="flex-shrink-0 h-550 w-550">
     <img
       className="w-full h-full object-cover rounded-r-2xl"
       src="https://media.pitchfork.com/photos/6352cd4063dcacf1f2521078/3:2/w_1998,h_1332,c_limit/Taylor-Swift-Red.jpg"
