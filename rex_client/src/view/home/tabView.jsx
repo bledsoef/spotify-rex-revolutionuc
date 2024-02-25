@@ -6,6 +6,7 @@ import ReceivedContent from '../received/receivedContent';
 import SentContent from '../sent/sentContent';
 import CreateRec from '../search/createRec';
 import RequestsContent from "../requests/requestsBar";
+import Profile from '../profile/profile';
 // import SearchContent from '../search/searchContent';
 // Main App Component
 const TabView = ({ onTabChange, tab}) => {
@@ -25,6 +26,7 @@ const TabView = ({ onTabChange, tab}) => {
     3: <SentContent/>,
     4: <RequestsContent />,
     5: <CreateRec/>,
+    6: <Profile/>
 
   };
 
@@ -82,7 +84,7 @@ const TabView = ({ onTabChange, tab}) => {
             }`}
             onClick={() => handleTabChange(4)}
           >
-            Requests (3)
+            Requests
           </button>
         </div>
       </div>
@@ -94,6 +96,7 @@ const TabView = ({ onTabChange, tab}) => {
         {activeTab === 3 && <SentContent />}
         {activeTab === 4 && <RequestsContent />}
         {activeTab === 5 && <CreateRec />}
+        {activeTab === 6 && <Profile />}
       </div>
     </div>
   );

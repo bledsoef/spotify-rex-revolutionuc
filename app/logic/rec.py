@@ -4,7 +4,7 @@ from datetime import datetime
 def create_new_rec(db: Session, rec_data):
     for recipient in rec_data['recipients']:  
         try:
-            new_rec = Rec(mediaName=rec_data['mediaName'], artistName=rec_data["artistName"], description=rec_data["description"], createdBy=rec_data['sender'], sentTo=recipient, isPost=rec_data['isPost'], status="pending")
+            new_rec = Rec(mediaName=rec_data['mediaName'], artistName=rec_data["artistName"], description=rec_data["description"], createdBy=rec_data['sender'], sentTo=recipient, isPost=rec_data['isPost'], image=("".join([i.lower() for i in rec_data["mediaName"]])), status="pending")
             db.add(new_rec)
             db.commit()
         except Exception as e:
@@ -35,7 +35,7 @@ def accept_rec_from_user(db: Session, rec_id):
 def accept_rec_from_post(db: Session, rec_id: int, user_id: str):
     try:
         rec = db.query(Rec).filter(Rec.id == rec_id).first()
-        new_rec = Rec(createdBy=rec.createdBy, mediaName=rec.mediaName, artistName=rec.artistName, description=rec.description, sentTo=user_id, status="accepted", isPost=False)
+        new_rec = Rec(createdBy=rec.createdBy, mediaName=rec.mediaName, artistName=rec.artistName, description=rec.description, sentTo=user_id, image=rec.image,status="accepted", isPost=False)
         db.add(new_rec)
         db.commit()
     except Exception as e:
@@ -67,6 +67,10 @@ def get_received_recs(db: Session, user_id: str):
             .all()
     )]
     return {'pending': received_pending, 'accepted': received_accepted, 'completed': received_completed, 'rejected': received_rejected}
+
+def get_requests(db: Session, user_id: str):
+    return [entry.__dict__ for entry in db.query(Rec).filter(Rec.sentTo == user_id, Rec.status == 'pending').all()]
+
 
 def get_sent_recs(db: Session, user_id: str):
     sent_pending = [entry.__dict__ for entry in db.query(Rec).filter(Rec.createdBy == user_id, Rec.status == 'pending', Rec.isPost == False).all()]

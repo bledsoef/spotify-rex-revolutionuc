@@ -1,6 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { ref, getDownloadURL } from "firebase/storage";
+import {storage }from "../../firebase.js";
+
 
 function acceptedRec({post}) {
+  useEffect(() => {
+    fetchImageDownloadUrl(post["image"])
+  }, [])    // Content for each tab
+  const [url, setUrl] = useState("")
+  async function fetchImageDownloadUrl(img) {
+    const fileRef = ref(storage, img);
+    var res = getDownloadURL(fileRef)
+        .then((res) => setUrl(res))
+        .catch((error) => {
+        // Handle any errors
+        console.error("Error getting download URL:", error);
+        });
+    return res
+    }
   return (
     <div className="flex flex-col  w-5/12  pt-5">
       <div className="flex bg-red-600 rounded-2xl pt-2 w-full">
@@ -31,12 +48,12 @@ function acceptedRec({post}) {
           <div className="flex-shrink-0 w-42 h-56">
             <img
               className="w-full h-full object-cover rounded-tr-xl rounded-bl-xl"
-              src="https://media.pitchfork.com/photos/6352cd4063dcacf1f2521078/3:2/w_1998,h_1332,c_limit/Taylor-Swift-Red.jpg"
+              src={url}
               alt="Music Cover"
             />
           </div>
-          <div>
-            <p className="">{post["description"]}</p>
+          <div className="h-full w-full items-center p-6">
+            <p className="text-2xl">{post["description"]}</p>
           </div>
         </div>
         </div>

@@ -1,12 +1,35 @@
 import { useState, useEffect } from "react";
-
+import { ref, getDownloadURL } from "firebase/storage";
+import {storage }from "../../firebase.js";
 function Post({post, reviews}) {
   const clickHandler = (e) => {
     e.preventDefault();
     APIrequest()
   };
+  useEffect(() => {
+    fetchImageDownloadUrl(post["image"])
+    calculate()
+  }, [])    // Content for each tab
+  const [url, setUrl] = useState("")
+  const [average, setAverage] = useState(5.0)
   const [isAccepted, setIsAccepted] = useState(false);
-  const [feed, setFeed] = useState([]);
+  async function fetchImageDownloadUrl(img) {
+    const fileRef = ref(storage, img);
+    var res = getDownloadURL(fileRef)
+        .then((res) => setUrl(res))
+        .catch((error) => {
+        // Handle any errors
+        console.error("Error getting download URL:", error);
+        });
+    return res
+  }
+  const calculate = () => {
+    let sum = 0;
+    for (let i = 0; i < reviews.length; i++) {
+      sum += reviews[i].rating;
+    }
+    setAverage(sum / reviews.length);
+  }
   const APIrequest = async () => {
     fetch("http://127.0.0.1:8000/acceptRecFromPost", 
     {
@@ -21,7 +44,6 @@ function Post({post, reviews}) {
 
     }).then((response) => response.json()) // Parse the response as JSON
     .then((data) => {
-        setFeed(feed => data);
         setIsAccepted(true)
     }
     ).catch(error => console.log(error))      
@@ -48,12 +70,16 @@ function Post({post, reviews}) {
     </div>
 
     <div className="p-2 flex flex-col w-full">
-      <p className="text-7xl pb-4 pl-2 font-bold">Reviews ({reviews.length})</p>
+      <p className="text-7xl pb-4 pl-2 font-bold">Reviews ({reviews.length}) {average ? `⭐ ${average}` : ""} </p>
       <div className="flex flex-row w-full">
         {reviews.map((review, index) => (
           <div>
             <div className="flex-col p-3 w-full flex">
-              <p className="flex text-5xl w-full pb-6">⭐⭐⭐⭐</p>
+              {review["rating"] == 1 && <p className="flex text-5xl w-full pb-6">⭐</p>}
+              {review["rating"] == 2 && <p className="flex text-5xl w-full pb-6">⭐⭐</p>}
+              {review["rating"] == 3 && <p className="flex text-5xl w-full pb-6">⭐⭐⭐</p>}
+              {review["rating"] == 4 && <p className="flex text-5xl w-full pb-6">⭐⭐⭐⭐</p>}
+              {review["rating"] == 5 && <p className="flex text-5xl w-full pb-6">⭐⭐⭐⭐⭐</p>}
               <p className="flex text-4xl w-full">{review["comment"]}</p>
             </div>
           </div>
@@ -80,7 +106,7 @@ function Post({post, reviews}) {
   <div className="flex-shrink-0 h-550 w-550">
     <img
       className="w-full h-full object-cover rounded-r-2xl"
-      src="https://media.pitchfork.com/photos/6352cd4063dcacf1f2521078/3:2/w_1998,h_1332,c_limit/Taylor-Swift-Red.jpg"
+      src={url}
       alt="Music Cover"
     ></img>
   </div>

@@ -66,6 +66,15 @@ async def rejectRec(request: Request, db :Session = Depends(get_db)):
         print(e)
         return {"message": "Failed to create rec"}
 
+
+@router.get("/getRequestsForUser")
+async def getRequestsForUser(username:str, db :Session = Depends(get_db)):
+    try:
+        return get_requests(db, username)
+    except Exception as e:
+        print(e)
+        return {"message": "Failed to get requests"}
+
 @router.get("/getReceivedRecsForUser")
 async def getReceivedRecsForUser(username: str, db: Session = Depends(get_db)):
     try:
