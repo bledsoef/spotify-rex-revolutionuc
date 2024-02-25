@@ -15,20 +15,35 @@ Spotify Rex is a web application that revolutionizes how users discover music re
 
 ## Directory Structure
 
-- **app**: Contains the main application logic and components.
-  - **controllers**: Handles HTTP requests and responses.
-  - **main.py**: Entry point for the application.
-  - **rec.py**, **spotify.py**: Modules for recommendation and Spotify integration.
-- **logic**: Additional logic and utility functions.
-- **models**: Database models and schemas.
-- **database**: Database management scripts and configurations.
-- **src**: Frontend source code.
-  - **view**: Contains views and components.
-  - **feed**, **home**, **profile**, **received**, **requests**, **reviews**, **search**: Different views for the application.
-- **rex_client**: Client-side application or module.
-- **node_modules**: Node.js dependencies.
-- **README.md**: You're currently reading it!
-- **package.json**, **package-lock.json**: Node.js package configuration files.
+```
+.
+├── app
+│   ├── controllers
+│   │   ├── (Handles HTTP requests and responses)
+│   ├── main.py
+│   ├── rec.py
+│   └── spotify.py
+├── logic
+│   └── (Additional logic and utility functions)
+├── models
+│   └── (Database models and schemas)
+├── database
+│   └── (Database management scripts and configurations)
+├── src
+│   └── view
+│       ├── feed
+│       ├── home
+│       ├── profile
+│       ├── received
+│       ├── requests
+│       ├── reviews
+│       └── search
+├── rex_client
+├── node_modules
+├── README.md
+├── package.json
+└── package-lock.json
+```
 
 ## Getting Started
 
@@ -43,3 +58,5 @@ Spotify Rex is a web application that revolutionizes how users discover music re
 - Backend: Python
 - Database: MySQL
 - Spotify API
+
+## Built by Finn, Steven, Ali and Daize from Berea College
