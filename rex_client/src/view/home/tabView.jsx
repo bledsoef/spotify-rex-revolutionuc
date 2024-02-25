@@ -1,25 +1,35 @@
 // Import React and useState hook
-import React, { useState } from "react";
-import "tailwindcss/tailwind.css";
-import FeedContent from "../feed/feedContent";
-import ReceivedContent from "../received/receivedContent";
-import SentContent from "../sent/sentContent";
+import React, { useState, useEffect } from 'react';
+import 'tailwindcss/tailwind.css';
+import FeedContent from '../feed/feedContent';
+import ReceivedContent from '../received/receivedContent';
+import SentContent from '../sent/sentContent';
+import CreateRec from '../search/createRec';
 import RequestsContent from "../requests/requestsBar";
+// import SearchContent from '../search/searchContent';
 // Main App Component
-const TabView = () => {
+const TabView = ({ onTabChange, tab}) => {
   // State to manage the active tab
-  const [activeTab, setActiveTab] = useState(1);
+  const [activeTab, setActiveTab] = useState(tab);
   let lastScrollY = window.scrollY;
 
-  // Content for each tab
+  useEffect(() => {
+    const setTab = (tab) => {
+      setActiveTab(tab)
+    }
+    setTab(tab)
+  }, [tab])    // Content for each tab
   const tabContents = {
-    1: <FeedContent />,
-    2: <ReceivedContent />,
-    3: <SentContent />,
+    1: <FeedContent/>,
+    2: <ReceivedContent/>,
+    3: <SentContent/>,
     4: <RequestsContent />,
+    5: <CreateRec/>,
+
   };
 
   const handleTabChange = (tabNumber) => {
+    onTabChange(tabNumber);
     // If the current active tab is clicked again, set activeTab to null (or a value that you do not use)
     if (activeTab === tabNumber) {
       setActiveTab(null);
@@ -83,6 +93,7 @@ const TabView = () => {
         {activeTab === 2 && <ReceivedContent />}
         {activeTab === 3 && <SentContent />}
         {activeTab === 4 && <RequestsContent />}
+        {activeTab === 5 && <CreateRec />}
       </div>
     </div>
   );

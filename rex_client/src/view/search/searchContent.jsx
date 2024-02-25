@@ -1,4 +1,5 @@
 import React from 'react';
+import PostOption from './postOption';
 import ShareList from './share_list';
 
 function SearchContent() {
@@ -15,12 +16,12 @@ function SearchContent() {
       </div>
 
       <div className="scroll-div">
-        <ShareList />
-        <ShareList />
-        <ShareList />
-        <ShareList />
-        <ShareList />
-        <ShareList />
+        <PostOption/>
+        <ShareList firstName={"Jessica"} lastName={"Parker"}/>
+        <ShareList firstName={"Stevenson"} lastName={"Michel"}  />
+        <ShareList firstName={"Silas"} lastName={"Fair"}  />
+        <ShareList firstName={"Ali"} lastName={"Ramazani"}  />
+        <ShareList firstName={"Daize"} lastName={"Njounkeng"}  />
       </div>
     </div>
   );
