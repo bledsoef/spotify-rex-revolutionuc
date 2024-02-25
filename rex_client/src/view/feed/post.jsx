@@ -1,12 +1,38 @@
+import { useState, useEffect } from "react";
 
 function Post({post, reviews}) {
+  const clickHandler = (e) => {
+    e.preventDefault();
+    APIrequest()
+  };
+  const [isAccepted, setIsAccepted] = useState(false);
+  const [feed, setFeed] = useState([]);
+  const APIrequest = async () => {
+    fetch("http://127.0.0.1:8000/acceptRecFromPost", 
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        "rec_id": post["id"],
+        "user_id": "finn",
+      }),
+
+    }).then((response) => response.json()) // Parse the response as JSON
+    .then((data) => {
+        setFeed(feed => data);
+        setIsAccepted(true)
+    }
+    ).catch(error => console.log(error))      
+  };
   return (
     <div className="flex flex-row w-full">
-    <div className="flex flex-col bg-red-600 p-8 justify-between w-2/3 rounded-l-2xl">
+    <div className="flex flex-col bg-red-600 p-8 justify-between w-2/3 rounded-l-2xl shadow-lg">
     <div className="flex flex-row w-full justify-between">
       <div className="flex-col p-3">
-        <div className="text-9xl font-semibold">Red</div>
-        <div className="text-6xl pt-4 text-gray-100 font-normal">Taylor Swift</div>
+        <div className="text-9xl font-semibold">{post["mediaName"]}</div>
+        <div className="text-6xl pt-4 text-gray-100 font-normal">{post["artistName"]}</div>
       </div>
       <div className="flex-row user">
         <img
@@ -33,11 +59,18 @@ function Post({post, reviews}) {
           </div>
         ))}
         <div className="flex justify-end w-full">
-          <button className="flex">
+          {!isAccepted && <button className="flex" onClick={clickHandler}>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=" p-2 w-48">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
           </svg>
-          </button>
+          </button>}
+          {isAccepted && <button  className="flex" onClick={clickHandler} disabled>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=" p-2 w-48">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+
+
+          </button>}
         </div>
       </div>
 
