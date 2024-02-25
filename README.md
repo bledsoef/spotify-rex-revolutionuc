@@ -2,7 +2,7 @@
 
 Spotify Rex is a web application that revolutionizes how users discover music recommendations from their friends and community.
 
-<img src="https://github.com/bledsoef/spotify-rex-revolutionuc/assets/89226977/9a552caf-05e3-4815-b895-da3d757435e9" alt="image" height="300" width="600">
+<img src="https://github.com/bledsoef/spotify-rex-revolutionuc/assets/89226977/9a552caf-05e3-4815-b895-da3d757435e9" alt="image" height="400" width="600">
 
 
 
