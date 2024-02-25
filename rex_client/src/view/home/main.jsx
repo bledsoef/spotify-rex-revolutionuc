@@ -5,13 +5,15 @@ import TabView from "../home/tabView";
 function Main() {
   return (
     <div className="mainFeed">
-      <div className="">
-        <NavBar />
-      </div>
-      <div className="middleFeed">
-        <SideBar />
-        <TabView />
-      </div>
+        <div className=" bg-gray-950">
+            <NavBar />
+        <div className="mt-36 bg-black">
+            <SideBar />
+            <div className=" ml-96 bg-gray-950">
+                <TabView />
+            </div>
+        </div>
+        </div>
     </div>
   );
 }
