@@ -1,68 +1,69 @@
 import { storage } from "../../firebase";
 import { ref, getDownloadURL } from "firebase/storage";
-import SearchContent from "./searchContent";
 import { useState, useEffect } from "react";
+import SearchContent from "./searchContent";
+
 export default function CreateRec() {
     const [url, setUrl] = useState("");
     const [description, setDescription] = useState("");
-// Function to get the download URL
+    const [selectedUsers, setSelectedUsers] = useState([]);
+
     const handleChange = (e) => {
-        setDescription(e.target.value)
+        setDescription(e.target.value);
     }
-    const handleSubmit = async (e) => {
-        APIrequest();
+
+    const handleSubmit = async () => {
+        const usernames = selectedUsers.map(user => user.userName)
+        const requestData = {
+            description: description,
+            usernames: usernames
+        };
+        // Sending requestData to the backend
+        try {
+            const response = await fetch("http://127.0.0.1:8000/createRec", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(requestData)
+            });
+            const data = await response.json();
+            setDescription("");
+            // Handle response data if needed
+        } catch (error) {
+            console.error("Error occurred:", error);
+        }
     }
-    const APIrequest = async () => {
-        fetch("http://127.0.0.1:8000/createRec",
-        {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                "description": description,
-                "username": "finn"
-            })
-        }
-        ).then((response) => response.json()) // Parse the response as JSON
-        .then((data) => {
-          setAccepted(data.accepted);
-          setCompleted(data.completed);
-        }
-        ).catch(error => console.log(error))      
-      };
+
     async function fetchImageDownloadUrl() {
         const fileRef = ref(storage, 'album_covers/thacarterIII.jpg');
-        getDownloadURL(fileRef)
-            .then((res) => setUrl(res))
-            .catch((error) => {
-            // Handle any errors
+        try {
+            const res = await getDownloadURL(fileRef);
+            setUrl(res);
+        } catch (error) {
             console.error("Error getting download URL:", error);
-            });
-    }
-    useEffect(() => {
-        const fetchUrl = async () => {
-          var new_url = await fetchImageDownloadUrl()
-          setUrl(new_url)
         }
-        fetchUrl()
-      }, [])// Example usage
+    }
+
+    useEffect(() => {
+        fetchImageDownloadUrl();
+    }, []);
+
     return (
-    <div>
-        {/* <button onClick={fetchImageDownloadUrl}>Download Image</button> */}
-        {/* <img src={url}/> */}
-        <div className="flex flex-row  items-center w-full">
-
-            <div className="text-2xl flex flex-col w-1/2">
-                <label className="text-white p-4">Recommendation Caption</label>
-                <textarea className="text-black p-4 rounded-2xl" placeHolder={"Caption"} onChange={handleChange} value={description}/>
-            </div>
-            <div className=" mx-auto ">
-                <button className="text-4xl w-1/4 bg-green-500 p-4 rounded-full" onClick={handleSubmit}>Send Rec</button>
-            </div>
+<div>
+    <div className="flex flex-row items-center w-full">
+        <div className="text-2xl flex flex-col w-full"> {/* Adjusted width to w-3/4 */}
+            <label className="text-white p-4">Recommendation Caption</label>
+            <textarea className="text-black p-4 rounded-2xl" placeholder={"Caption"} onChange={handleChange} value={description}/>
         </div>
-
-        <SearchContent />
+        <div className="ml-4 mt-auto flex items-center"> {/* Center the button text */}
+            <button className="text-3xl bg-green-500 px-12 py-5 rounded-full" onClick={handleSubmit}>Send</button>
+        </div>
     </div>
+    <SearchContent setSelectedUsers={setSelectedUsers} />
+</div>
+
+
+
     );
 }

@@ -555,3 +555,8 @@ user_profile_name. p {
   border-radius: 50%;
   object-fit: cover;
 }
+
+mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}

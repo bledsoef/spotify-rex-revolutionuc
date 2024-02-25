@@ -1,10 +1,12 @@
+// ShareList.js
 import React, { useState } from 'react';
 
-function ShareList({ firstName, lastName }) {
+function ShareList({ firstName, lastName, userName, onUserSelect }) {
   const [isSelected, setIsSelected] = useState(false);
 
   const handleCircleClick = () => {
     setIsSelected(!isSelected);
+    onUserSelect({ userName: userName}); // Pass user information and isSelected state to parent component
   };
 
   return (
@@ -14,7 +16,7 @@ function ShareList({ firstName, lastName }) {
           <div className="img">
             <img
               className="search_user_profile_img"
-              src="https://www.amandaherbert.com/wp-content/uploads/2022/09/Mahima-Sukhdev-Headshots-100.jpg"
+              src="https://images.squarespace-cdn.com/content/v1/5aee389b3c3a531e6245ae76/1531792846005-MYGZAOI0L93I3YJWHB6W/D75_5697-Edit.jpg"
             />
           </div>
           <div className="user_profile_name_search ml-9">

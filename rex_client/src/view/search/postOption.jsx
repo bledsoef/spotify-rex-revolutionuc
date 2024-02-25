@@ -12,7 +12,7 @@ function PostOption() {
       <div className="flex flex-row justify-between items-center">
         <div className="flex flex-row items-center">
           <div className="ml-9 text-4xl font-semibold">
-            <p>Post this to your following</p>
+            <p>Post this to your feed</p>
           </div>
         </div>
         <div className="flex flex-row items-center mr-20" onClick={handleCircleClick}>
