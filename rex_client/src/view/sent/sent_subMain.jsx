@@ -1,4 +1,4 @@
-import MusicCard from "/Users/daizenj/Desktop/spotify-rex-revolutionuc/rex_client/src/view/received/music_card.jsx";
+import MusicCard from "./music_card";
 
 function SentSubMain() {
   return (
