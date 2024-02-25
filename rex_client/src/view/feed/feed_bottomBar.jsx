@@ -1,10 +1,5 @@
 function FeedBottomBar() {
-    return (
-      <>
-        <p>Hello from FeedBottomBar</p>
-      </>
-    );
-  }
-  
-  export default FeedBottomBar;
-  
+  return <></>;
+}
+
+export default FeedBottomBar;
