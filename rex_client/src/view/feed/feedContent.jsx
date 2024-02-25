@@ -7,7 +7,7 @@ function FeedContent() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/getFeedForUser?username=finn");
+        const response = await fetch("http://127.0.0.1:8000/getFeedForUser?username=Finn");
         const data = await response.json();
         console.log(data)
         setFeed(data);

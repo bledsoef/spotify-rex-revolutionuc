@@ -11,7 +11,7 @@ function SentContent() {
     fetchData()
   }, [])  
   const APIrequest = async () => {
-    fetch("http://127.0.0.1:8000/getSentRecsForUser?username=finn").then((response) => response.json()) // Parse the response as JSON
+    fetch("http://127.0.0.1:8000/getSentRecsForUser?username=Finn").then((response) => response.json()) // Parse the response as JSON
     .then((data) => {
       console.log(data)
       setAccepted(data.accepted);
