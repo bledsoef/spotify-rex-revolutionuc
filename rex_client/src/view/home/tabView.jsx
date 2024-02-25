@@ -4,6 +4,7 @@ import 'tailwindcss/tailwind.css';
 import FeedContent from '../feed/feedContent';
 import ReceivedContent from '../received/receivedContent';
 import SentContent from '../sent/sentContent';
+// import SearchContent from '../search/searchContent';
 
 // Main App Component
 const TabView = () => {
