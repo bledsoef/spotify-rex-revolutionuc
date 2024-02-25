@@ -32,8 +32,8 @@ async def get_user_picture(user_id: str, access_token: str):
     else:
         return None
     
-async def get_user_top_stats(access_token: str, type: str):
-    url = f"https://api.spotify.com/v1/me/top/{type}"
+async def get_user_top_stats(access_token: str, type: str, limit: int = 5):
+    url = f"https://api.spotify.com/v1/me/top/{type}?limit={limit}"
     headers = {'Authorization': f'Bearer {access_token}'}
     async with httpx.AsyncClient() as client:
         response = await client.get(url, headers=headers)
