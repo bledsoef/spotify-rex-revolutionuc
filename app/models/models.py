@@ -41,7 +41,7 @@ class Rec(Base):
     isPost = Column(Boolean, nullable=False)
     # completed, pending, accepted, rejected
     status = Column(String(50), nullable=False)
-    image = Column(String(50), nullable=True)
+    image = Column(String(50), nullable=False)
 
     creator = relationship("User", back_populates="created_recs", foreign_keys=[createdBy])
 

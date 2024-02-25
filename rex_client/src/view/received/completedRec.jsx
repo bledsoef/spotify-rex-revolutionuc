@@ -1,8 +1,26 @@
+import { useState, useEffect } from "react";
+import { ref, getDownloadURL } from "firebase/storage";
+import {storage }from "../../firebase.js";
 
 function completedRec({post, review}) {
+  const colors = ["red-500", "orange-500", "yellow-500", "green-500", "teal-500", "blue-500", "indigo-500"]
+  useEffect(() => {
+    fetchImageDownloadUrl(post["image"])
+  }, [])    // Content for each tab
+  const [url, setUrl] = useState("")
+  async function fetchImageDownloadUrl(img) {
+    const fileRef = ref(storage, img);
+    var res = getDownloadURL(fileRef)
+        .then((res) => setUrl(res))
+        .catch((error) => {
+        // Handle any errors
+        console.error("Error getting download URL:", error);
+        });
+    return res
+    }
   return (
     <div className="flex flex-col w-5/12 pt-5">
-      <div className="flex bg-red-600 rounded-2xl pt-2 w-full">
+      <div className={`flex bg-red-500 rounded-2xl pt-2 w-full`}>
         <div className="flex flex-col w-full">
           <div className="flex flex-row w-full justify-between p-3 px-8">
             <div className="flex flex-col">
@@ -30,7 +48,7 @@ function completedRec({post, review}) {
           <div className="flex-shrink-0 w-42 h-56">
             <img
               className="w-full h-full object-cover rounded-tr-xl rounded-bl-xl"
-              src="https://media.pitchfork.com/photos/6352cd4063dcacf1f2521078/3:2/w_1998,h_1332,c_limit/Taylor-Swift-Red.jpg"
+              src={url}
               alt="Music Cover"
             />
           </div>

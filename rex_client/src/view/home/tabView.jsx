@@ -82,7 +82,7 @@ const TabView = ({ onTabChange, tab}) => {
             }`}
             onClick={() => handleTabChange(4)}
           >
-            Requests (3)
+            Requests
           </button>
         </div>
       </div>
