@@ -3,3 +3,6 @@ fastapi
 sqlalchemy
 pymysql
 mangum
+httpx==0.22.0
+colorama==0.4.4
+spotipy==2.19.0
