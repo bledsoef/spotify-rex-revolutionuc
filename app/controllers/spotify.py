@@ -35,30 +35,59 @@ async def callback(code: str):
 
     tokens = response.json()
     access_token = tokens.get("access_token")
-
     user_profile = await get_user_profile(access_token)
     
     if user_profile:
-        print("User Profile Information:")
-        print(f"Display Name: {user_profile.get('display_name')}")
-        print(f"Email: {user_profile.get('email')}")
-        print(f"Country: {user_profile.get('country')}")
-        print(f"Explicit content: {user_profile.get('explicit_contentma')}")
-        print(f"Followers: {user_profile.get('followers')}")
         user_playlists = await get_user_playlists(user_profile['id'], access_token)
         user_picture = await get_user_picture(user_profile['id'], access_token)
-        user_top_artists = await get_user_top_stats(access_token, 'artists')
-        user_top_tracks = await get_user_top_stats(access_token, 'tracks')
-        if user_picture:
-            print(f"The user profile picture consists of {user_picture.get('images')}")
+        user_top_artists = await get_user_top_stats(access_token, 'artists', limit = 5)
+        user_top_tracks = await get_user_top_stats(access_token, 'tracks', limit = 5)
 
-        print(user_top_artists)
-        print(user_top_tracks)
-            
-        if user_playlists:
-            print(f"The user public playlist consists of: {user_playlists.get('name')}")
-            print(f"the playlist description is : {user_playlists.get('description')}")
+        top_artists_info = []
+        for artist in user_top_artists.get('items', []):
+            name = artist.get('name')
+            images = artist.get('images')
+            top_artists_info.append({"name" : name,
+                                 "images" : images})
+
+        top_tracks_info = []
+        for track in user_top_tracks.get('items', []):
+            album = track.get('album')
+            name = track.get('name')
+            popularity = track.get('popularity')
+            artist_names = [artist['name'] for artist in track.get('artists', [])]
+            duration = track.get('duration')
+            top_tracks_info.append({"name" : name,
+                                 "album": album.get('name'),
+                                 "images" : album.get('images'),
+                                 "artists": artist_names,
+                                 "popularity": popularity,
+                                 "duration": duration})
+
+            profile_info = {
+            "display_name": user_profile.get('display_name'),
+            "country": user_profile.get('country'),
+            "explicit_content": user_profile.get('explicit_content'),
+            "followers": user_profile.get('followers')['total'],
+            "user_picture": user_picture,
+            "top_artists": top_artists_info,
+            "top_tracks": top_tracks_info,
+            "playlists": [(item['name'], item['owner'], item['images']) for item in user_playlists.get('items')]
+        }
+        
+
+        print(profile_info)
+        return profile_info
+        
     else:
-        print("Failed to fetch user profile.")
+        # print("Failed to fetch user profile.")
+        raise HTTPException(status_code=404, detail="Failed to fetch user profile")
     
     return tokens 
+
+# @router.get("/profile-info")
+# async def profile_info():
+#     #verify that the user is logged in
+
+#     if user.isloggedin:
+#         return 
