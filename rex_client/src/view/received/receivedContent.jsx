@@ -1,6 +1,6 @@
 import MusicCard from "./music_card";
 
-function ReceivedSubMain() {
+function ReceivedContent() {
   return (
     <div className="feed_main">
     <h1 className=" text-3xl font-bold">Received Recommendations</h1>
@@ -40,4 +40,4 @@ function ReceivedSubMain() {
   );
 }
 
-export default ReceivedSubMain;
+export default ReceivedContent;

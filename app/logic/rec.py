@@ -4,7 +4,7 @@ from datetime import datetime
 def create_new_rec(db: Session, rec_data):
     for recipient in rec_data['recipients']:  
         try:
-            new_rec = Rec(name=rec_data['name'], createdBy=rec_data['sender'], sentTo=recipient, isPost=rec_data['isPost'], status="pending")
+            new_rec = Rec(mediaName=rec_data['mediaName'], artistName=rec_data["artistName"], description=rec_data["description"], createdBy=rec_data['sender'], sentTo=recipient, isPost=rec_data['isPost'], status="pending")
             db.add(new_rec)
             db.commit()
         except Exception as e:
@@ -35,7 +35,7 @@ def accept_rec_from_user(db: Session, rec_id):
 def accept_rec_from_post(db: Session, rec_id: int, user_id: str):
     try:
         rec = db.query(Rec).filter(Rec.id == rec_id).first()
-        new_rec = Rec(createdBy=rec.createdBy, name=rec.name, sentTo=user_id, status="accepted", isPost=True)
+        new_rec = Rec(createdBy=rec.createdBy, mediaName=rec.mediaName, artistName=rec.artistName, description=rec.description, sentTo=user_id, status="accepted", isPost=True)
         db.add(new_rec)
         db.commit()
     except Exception as e:

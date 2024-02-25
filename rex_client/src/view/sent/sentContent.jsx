@@ -1,6 +1,6 @@
 import MusicCard from "./music_card";
 
-function SentSubMain() {
+function SentContent() {
   return (
     <div className="feed_main">
     <h1 className=" text-3xl font-bold">Received Recommendations</h1>
@@ -39,5 +39,4 @@ function SentSubMain() {
     </div>
   );
 }
-
-export default SentSubMain;
+export default SentContent;
