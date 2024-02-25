@@ -4,6 +4,8 @@ import FeedMain from '../feed/feed_main';
 // Import Tailwind CSS for styling
 import 'tailwindcss/tailwind.css';
 import FeedSubMain from '../feed/feed_subMain';
+import ReceivedSubMain from '../received/received_subMain';
+import SentSubMain from '../sent/sent_subMain';
 
 // Main App Component
 const HomeMain = () => {
@@ -13,8 +15,8 @@ const HomeMain = () => {
   // Content for each tab
   const tabContents = {
     1: <FeedSubMain/>,
-    2: 'Content for Tab 2',
-    3: 'Content for Tab 3',
+    2: <ReceivedSubMain/>,
+    3: <SentSubMain/>,
   };
 
   // Function to handle tab change

@@ -10,7 +10,7 @@ html {
 
 .arrows {
   color: white;
-  font-size: 3.0rem;
+  font-size: 3rem;
   display: flex;
   gap: 1.5rem;
 }
@@ -25,6 +25,7 @@ html {
   justify-content: space-between;
   padding: 2rem;
   align-items: center;
+  display: relative;
 }
 
 .profile {
@@ -32,17 +33,13 @@ html {
   justify-content: center;
   align-items: center;
   gap: 1.4rem;
+  display: relative;
+  cursor: pointer;
 }
 
 .img_profile_photo {
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
-}
-
-.img_profile_photo {
-  width: 50px;
-  height: 50px;
+  width: 5.4rem;
+  height: 5.4rem;
   border-radius: 50%;
 }
 
@@ -117,19 +114,19 @@ html {
   gap: 1.5rem;
 }
 
-.spotify svg{
+.spotify svg {
   width: 5.4rem;
   height: 5.4rem;
 }
 
-.profile_name svg{
+.profile_name svg {
   width: 3rem;
   height: 3rem;
   font-size: 1.2rem;
 }
 
 .profile_name {
-  font-size: 1.5rem; 
+  font-size: 2rem;
 }
 
 /* Music Box */
@@ -240,4 +237,43 @@ html {
   background-color: transparent;
   /* border: 0; */
   color: white;
+}
+
+.profile_topright {
+  background-color: #333;
+  font-size: 1.4rem;
+  gap: 2rem;
+  width: 18rem;
+  position: absolute;
+  top: 8rem;
+  right: -8rem;
+  z-index: 1;
+  transform: translateX(-50%);
+  padding: 1.5rem 1.5rem;
+  border-radius: 1rem;
+}
+
+.profile_topright ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  display: absolute;
+  left: 0;
+}
+
+.logout-item {
+  border-top: 0.1rem solid #666;
+  padding-top: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.account-item {
+  display: flex;
+  align-items: center;
+}
+
+.account-icon {
+  margin-left: 6rem;
+  width: 1.8rem;
+  height: 1.8rem;
 }

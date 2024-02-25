@@ -1,4 +1,4 @@
-function MusicBox() {
+function MusicCard() {
   return (
     <div className="flex flex-row w-full">
   <div className="flex flex-col bg-red-600 p-8 justify-between w-4/6 rounded-l-2xl">
@@ -47,7 +47,7 @@ function MusicBox() {
     </div>
   </div>
 
-  <div className="flex-shrink-0 h-550 w-550">
+  <div className="flex-shrink-0 h-600 w-600">
     <img
       className="w-full h-full object-cover rounded-r-2xl"
       src="https://media.pitchfork.com/photos/6352cd4063dcacf1f2521078/3:2/w_1998,h_1332,c_limit/Taylor-Swift-Red.jpg"
@@ -59,4 +59,4 @@ function MusicBox() {
   );
 }
 
-export default MusicBox;
+export default MusicCard;
