@@ -8,7 +8,7 @@ print("inserting test data")
 with Session(engine) as session:
     finn = User(username="finn", firstName="test", lastName="test", email="test")
     steve = User(username="steve", firstName="test", lastName="test", email="test")
-    testPending = Rec(mediaName="test", artistName="test", description="description", createdBy="finn", sentTo="steve", isPost=False, status="pending")
+    testPending = Rec(mediaName="test", artistName="test", description="description", createdBy="steve", sentTo="finn", isPost=False, status="pending")
     testAccepted = Rec(mediaName="test", artistName="test", description="description", createdBy="finn", sentTo="steve", isPost=False, status="accepted")
     testCompleted = Rec(mediaName="test", artistName="test", description="description", createdBy="finn", sentTo="steve", isPost=False, status="completed")
     testCompleted = Rec(mediaName="test", artistName="test", description="description", createdBy="steve", sentTo="finn", isPost=False, status="completed")

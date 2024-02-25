@@ -68,6 +68,10 @@ def get_received_recs(db: Session, user_id: str):
     )]
     return {'pending': received_pending, 'accepted': received_accepted, 'completed': received_completed, 'rejected': received_rejected}
 
+def get_requests(db: Session, user_id: str):
+    return [entry.__dict__ for entry in db.query(Rec).filter(Rec.sentTo == user_id, Rec.status == 'pending').all()]
+
+
 def get_sent_recs(db: Session, user_id: str):
     sent_pending = [entry.__dict__ for entry in db.query(Rec).filter(Rec.createdBy == user_id, Rec.status == 'pending', Rec.isPost == False).all()]
     sent_rejected = [entry.__dict__ for entry in db.query(Rec).filter(Rec.createdBy == user_id, Rec.status == 'rejected', Rec.isPost == False).all()]
