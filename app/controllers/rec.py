@@ -82,7 +82,6 @@ async def getFeed(username: str, db: Session = Depends(get_db)):
         non_user_posts = list(get_non_user_posts(db, username))
         result = []
         for post in non_user_posts:
-            print(post.id)
             reviews = [entry.__dict__ for entry in  get_post_review(db, post.id)]
             result.append({"post":post, "reviews": reviews})
         
