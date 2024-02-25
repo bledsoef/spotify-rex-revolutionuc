@@ -5,7 +5,6 @@ import FeedContent from "../feed/feedContent";
 import ReceivedContent from "../received/receivedContent";
 import SentContent from "../sent/sentContent";
 import RequestsContent from "../requests/requestsBar";
-
 // Main App Component
 const TabView = () => {
   // State to manage the active tab

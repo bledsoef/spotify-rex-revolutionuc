@@ -84,7 +84,6 @@ async def getFeed(username: str, db: Session = Depends(get_db)):
         for post in non_user_posts:
             reviews = [entry.__dict__ for entry in get_post_review(db, post.id)]
             result.append({"post":post, "reviews": reviews})
-        
         return result
     except Exception as e:
         print(e)

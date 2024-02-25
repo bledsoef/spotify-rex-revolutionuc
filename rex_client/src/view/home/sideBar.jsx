@@ -1,7 +1,7 @@
 function SideBar() {
     return (
       <div className="fixed justify-between flex space-y-8 flex-col p-8">
-        <div className="flex flex-row items-center space-x-4 text-4xl ">
+        <div className="flex flex-row items-center space-x-4 text-4xl hover:text-green-600 transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" 
               viewBox="0 0 24 24" 
               fill="currentColor" 
@@ -13,7 +13,7 @@ function SideBar() {
             <p className="">Home</p>
           </div>
         </div>
-        <div className="flex flex-row items-center space-x-4 text-4xl ">
+        <div className="flex flex-row items-center space-x-4 text-4xl hover:text-green-600 transition duration-300">
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
             fill="none" viewBox="0 0 24 24" 
@@ -28,7 +28,7 @@ function SideBar() {
             <p>Search</p>
           </div>
         </div>
-        <div className="flex flex-row items-center space-x-4 text-4xl ">
+        <div className="flex flex-row items-center space-x-4 text-4xl hover:text-green-600 transition duration-300">
           <svg xmlns="http://www.w3.org/2000/svg" 
             fill="none" 
             viewBox="0 0 24 24" strokeWidth={1.5} 
@@ -42,7 +42,7 @@ function SideBar() {
             <p>Your Library</p> 
           </div>
         </div>
-        <div className="flex flex-row items-center space-x-4 text-4xl ">
+        <div className="flex flex-row items-center space-x-4 text-4xl hover:text-green-600 transition duration-300 ">
           <svg xmlns="http://www.w3.org/2000/svg" 
             fill="none" 
             viewBox="0 0 24 24" 
@@ -57,7 +57,7 @@ function SideBar() {
             <p>Rex</p>
           </div>
         </div>
-        <div className="flex flex-row items-center space-x-4 pt-5 text-3xl ">
+        <div className="flex flex-row items-center space-x-4 pt-5 text-3xl hover:text-green-600 transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
           <path fillRule="evenodd" d="M5.625 1.5H9a3.75 3.75 0 0 1 3.75 3.75v1.875c0 1.036.84 1.875 1.875 1.875H16.5a3.75 3.75 0 0 1 3.75 3.75v7.875c0 1.035-.84 1.875-1.875 1.875H5.625a1.875 1.875 0 0 1-1.875-1.875V3.375c0-1.036.84-1.875 1.875-1.875ZM12.75 12a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V18a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V12Z" clipRule="evenodd" />
           <path d="M14.25 5.25a5.23 5.23 0 0 0-1.279-3.434 9.768 9.768 0 0 1 6.963 6.963A5.23 5.23 0 0 0 16.5 7.5h-1.875a.375.375 0 0 1-.375-.375V5.25Z" />
@@ -66,7 +66,7 @@ function SideBar() {
             <p>Create Playlist</p>
           </div>
         </div>
-        <div className="flex flex-row items-center space-x-4 text-3xl ">
+        <div className="flex flex-row items-center space-x-4 text-3xl hover:text-green-600 transition duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
         <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
       </svg>
@@ -75,31 +75,31 @@ function SideBar() {
             <p>Liked songs</p>
           </div>
         </div>
-        <div className="flex flex-row items-center space-x-4 text-3xl ">
+        <div className="flex flex-row items-center space-x-4 text-3xl hover:text-green-600 transition duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
         <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm0 8.625a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25ZM15.375 12a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0ZM7.5 10.875a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Z" clipRule="evenodd" />
       </svg>
           <div>
-            <p>Episodes</p>
+            <p>Episodes </p>
           </div>
         </div>
         <div className="p-4 pl-4 space-y-5 text-3xl">
-            <div className="text-3xl">
+            <div className="text-3xl hover:text-green-600 transition duration-300">
             <p className="font-bold">FAV</p>
             </div>
-            <div className="">
+            <div className="hover:text-green-600 transition duration-300">
             <p>Daily Mix 1</p>
             </div>
-            <div className="">
+            <div className="hover:text-green-600 transition duration-300">
             <p>Discover Weekly</p>
             </div>
-            <div className="">
+            <div className="hover:text-green-600 transition duration-300">
             <p>Malayalam</p>
             </div>
-            <div className="">
+            <div className="hover:text-green-600 transition duration-300">
             <p>Dance / Electronic Mix</p>
             </div>
-            <div className="">
+            <div className="hover:text-green-600 transition duration-300">
             <p>EDM / Popular</p>
             </div>
         </div>
