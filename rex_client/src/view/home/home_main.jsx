@@ -27,21 +27,21 @@ const HomeMain = () => {
       <h1 className="text-6xl font-bold mb-4">Rex</h1>
 
       {/* Tab Buttons */}
-      <div className="flex space-x-4 mb-4 justify-center">
+      <div className="flex mb-4 justify-center">
         <button
-          className={`py-2 px-4 border rounded-full ${activeTab === 1 ? 'bg-gray-800' : 'bg-gray-700'}`}
+          className={`text-4xl py-5 px-8 rounded-l-full ${activeTab === 1 ? 'bg-gray-800' : 'bg-gray-600'}`}
           onClick={() => handleTabChange(1)}
         >
           Feed
         </button>
         <button
-          className={`py-2 px-4 border rounded-full  ${activeTab === 2 ? 'bg-gray-800' : 'bg-gray-700'}`}
+          className={`text-4xl py-5 px-8  ${activeTab === 2 ? 'bg-gray-800' : 'bg-gray-600'}`}
           onClick={() => handleTabChange(2)}
         >
           Received
         </button>
         <button
-          className={`py-2 px-4 border rounded-full ${activeTab === 3 ? 'bg-gray-800' : 'bg-gray-700'}`}
+          className={`text-4xl py-5 px-8 rounded-r-full ${activeTab === 3 ? 'bg-gray-800' : 'bg-gray-600'}`}
           onClick={() => handleTabChange(3)}
         >
           Sent

@@ -79,11 +79,10 @@ async def getReceivedRecsForUser(username: str, db: Session = Depends(get_db)):
 @router.get("/getFeedForUser")
 async def getFeed(username: str, db: Session = Depends(get_db)):
     try:
-        non_user_posts = list(get_non_user_posts(db, username))
+        non_user_posts = get_non_user_posts(db, username)
         result = []
         for post in non_user_posts:
-            print(post.id)
-            reviews = [entry.__dict__ for entry in  get_post_review(db, post.id)]
+            reviews = [entry.__dict__ for entry in get_post_review(db, post.id)]
             result.append({"post":post, "reviews": reviews})
         
         return result
