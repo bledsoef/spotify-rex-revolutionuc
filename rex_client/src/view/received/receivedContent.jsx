@@ -34,15 +34,15 @@ function ReceivedContent() {
             
             <div className="w-1/2">
                 <h2 className=" text-4xl font-medium mt-3">Accepted </h2>
-                <div className="flex flex-wrap space-x-8">
+                <div className="flex flex-wrap">
                   {accepted.map((item, index) => (
-                    <button className="w-full" value={item} onClick={() => toggleShowModal(item)}>
+                    <button className="w-5/6" value={item} onClick={() => toggleShowModal(item)}>
                       <AcceptedRec key={index} post={item}/>
                     </button>
                   ))}
                 </div> 
             </div>
-            <div className="w-1/2 ml-8">
+            <div className="w-1/2 ml-4">
               <h2 className=" text-4xl font-medium mt-3 ">Completed</h2>
               <div className="flex flex-wrap">
                   {completed.map((item, index) => (

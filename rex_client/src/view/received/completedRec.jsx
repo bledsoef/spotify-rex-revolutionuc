@@ -19,7 +19,7 @@ function completedRec({post, review}) {
     return res
     }
   return (
-    <div className="flex flex-col w-5/12 pt-5 mr-7 mb-3">
+    <div className="flex flex-col w-5/12 pt-5 mr-3 mb-3">
       <div className={`flex bg-red-600 rounded-2xl pt-2 w-full`}>
         <div className="flex flex-col w-full">
           <div className="flex flex-row w-full justify-between p-3 px-8">
@@ -44,7 +44,7 @@ function completedRec({post, review}) {
           </div>
 
 
-        <div className="flex flex-row pt-3">
+        <div className="flex flex-row w-5/12 pt-3">
           <div className="flex-shrink-0 w-42 h-56">
             <img
               className="w-full h-full object-cover rounded-tr-xl rounded-bl-xl"

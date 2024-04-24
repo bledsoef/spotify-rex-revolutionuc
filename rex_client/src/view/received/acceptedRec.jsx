@@ -19,10 +19,10 @@ function acceptedRec({post}) {
     return res
     }
   return (
-    <div className="flex flex-col  w-5/12  pt-5">
+    <div className="flex flex-col  w-5/12 mr-7   pt-5">
       <div className="flex bg-red-600 rounded-2xl pt-2 w-full">
         <div className="flex flex-col w-full">
-          <div className="flex flex-row w-full justify-between p-3 px-8">
+          <div className="flex flex-row w-full justify-between p-3">
             <div className="flex flex-col">
               <div className="text-5xl font-semibold">{post["mediaName"]}</div>
               <div className="text-2xl pt-1 text-gray-100 font-normal">{post["artistName"]}</div>

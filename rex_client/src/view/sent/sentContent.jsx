@@ -24,7 +24,7 @@ function SentContent() {
         <div className="flex w-full">
             <div className="w-1/2">
               <h2 className=" text-4xl font-medium mt-3 ">Completed</h2>
-              <div className="flex flex-wrap space-x-8">
+              <div className="flex flex-wrap">
                   {completed.map((item, index) => (
                     <CompletedRec key={index} post={item["rec"]} review={item["review"]}/>
                   ))}
@@ -32,7 +32,7 @@ function SentContent() {
             </div>
             <div className="w-1/2 ml-8">
                 <h2 className=" text-4xl font-medium mt-3">Accepted </h2>
-                <div className="flex flex-wrap space-x-8">
+                <div className="flex flex-wrap ">
                   {accepted.map((item, index) => (
                     <AcceptedRec key={index} post={item}/>
                   ))}
